@@ -1,1892 +1,1496 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="vi" class="h-full">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KeyStore Pro - Digital Products Marketplace</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
+  <title>DOPI PRE - Khai Xuân Như Ý - Sale Tụt Quần</title><!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="Chuyên cung cấp Vietmap Live, ChatGPT, Canva Pro, Youtube Premium giá rẻ nhất thị trường. Bảo hành 1 đổi 1.">
+  <meta property="og:title" content="DOPI PRE - Kho Tài Nguyên Số Giá Rẻ &amp; Uy Tín">
+  <meta property="og:description" content="Chuyên cung cấp Vietmap Live, ChatGPT, Canva Pro, Youtube Premium giá rẻ nhất thị trường. Bảo hành 1 đổi 1.">
+  <meta property="og:image" content="https://i.imgur.com/placeholder-tet-banner.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dopipre.vn">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DOPI PRE - Kho Tài Nguyên Số Giá Rẻ &amp; Uy Tín">
+  <meta name="twitter:description" content="Chuyên cung cấp Vietmap Live, ChatGPT, Canva Pro, Youtube Premium giá rẻ nhất thị trường. Bảo hành 1 đổi 1.">
+  <meta name="twitter:image" content="https://i.imgur.com/placeholder-tet-banner.jpg"><!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script><!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-    body {
-      box-sizing: border-box;
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+        
+        /* Falling Petals Animation */
+        .petal {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        /* Toast Animation */
+        .toast {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+        }
+        
+        .toast-exit {
+            animation: fadeOut 0.3s ease-out forwards;
+        }
+        
+        /* Success Checkmark Animation */
+        @keyframes checkmark {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+            }
+            100% {
+                transform: scale(1) rotate(360deg);
+                opacity: 1;
+            }
+        }
+        
+        .checkmark-animated {
+            animation: checkmark 0.8s ease-out;
+        }
+        
+        /* Circle Draw Animation */
+        @keyframes drawCircle {
+            0% {
+                stroke-dashoffset: 340;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .circle-animated {
+            animation: drawCircle 1s ease-out forwards;
+        }
+        
+        /* Badge Bounce */
+        .badge-bounce {
+            animation: bounce 0.5s ease-out;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+        }
+        
+        /* Product Card Hover */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Button Hover */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(220, 38, 38, 0.4);
+        }
+        
+        /* Telegram Floating Button Animation */
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(-10deg); }
+            20% { transform: rotate(10deg); }
+            30% { transform: rotate(-10deg); }
+            40% { transform: rotate(10deg); }
+            50% { transform: rotate(0deg); }
+        }
+        
+        @keyframes pulse-scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        .telegram-float {
+            animation: pulse-scale 2s ease-in-out infinite;
+        }
+        
+        .telegram-float:hover {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        /* Modal Backdrop Blur */
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #DC2626 0%, #FBBF24 50%, #DC2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Golden Border */
+        .golden-border {
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #FBBF24, #F59E0B, #FBBF24) 1;
+        }
+        
+        /* Page Transition */
+        .page-content {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Fake Sales Notification Animation */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutLeft {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-400px);
+                opacity: 0;
+            }
+        }
+        
+        .sales-notification {
+            animation: slideInLeft 0.5s ease-out;
+        }
+        
+        .sales-notification-exit {
+            animation: slideOutLeft 0.5s ease-out forwards;
+        }
+        
+        /* Countdown Timer */
+        .countdown-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        /* Testimonial Card Animation */
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.2);
+        }
+        
+        /* Category Tab Styles */
+        .category-tab {
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .category-tab.active {
+            background: linear-gradient(135deg, #DC2626, #EF4444);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+        
+        .category-tab:not(.active):hover {
+            background: rgba(220, 38, 38, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        /* Product Fade Animation */
+        .product-fade-in {
+            animation: productFadeIn 0.4s ease-out;
+        }
+        
+        @keyframes productFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-    @keyframes slideIn {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
+        /* Disclaimer Modal Animation */
+        @keyframes modalZoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .disclaimer-modal-content {
+            animation: modalZoomIn 0.4s ease-out;
+        }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
+        /* Product Image Styles */
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1rem;
+        }
 
-    @keyframes successCheckmark {
-      0% {
-        transform: scale(0) rotate(45deg) translateY(-5px);
-        opacity: 0;
-      }
-      50% {
-        transform: scale(1.2) rotate(45deg) translateY(-5px);
-      }
-      100% {
-        transform: scale(1) rotate(45deg) translateY(-5px);
-        opacity: 1;
-      }
-    }
-
-    @keyframes ripple {
-      0% {
-        transform: scale(0);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-
-    @keyframes checkmark {
-      0% {
-        stroke-dashoffset: 50;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    @keyframes snowfall {
-      0% {
-        transform: translateY(-10px) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) translateX(50px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: #ffffff;
-      font-size: 1em;
-      pointer-events: none;
-      z-index: 9998;
-      animation: snowfall linear infinite;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-      will-change: transform, opacity;
-    }
-
-    .cart-drawer {
-      animation: slideIn 0.3s ease-out;
-    }
-
-    .toast {
-      animation: fadeIn 0.3s ease-out;
-    }
-
-    .product-card {
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .badge {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-      font-weight: 600;
-    }
-
-    .cart-item {
-      position: relative;
-    }
-
-    .cart-item .delete-button {
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .cart-item:hover .delete-button {
-      opacity: 1;
-    }
-
-    .payment-option {
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .payment-option:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .payment-option.selected {
-      border-width: 2px;
-    }
-
-    .chat-button {
-      animation: float 3s ease-in-out infinite;
-      transition: all 0.3s ease;
-    }
-
-    .chat-button:hover {
-      animation: none;
-      transform: scale(1.2) rotate(10deg);
-      box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
-    }
-
-    .chat-button:active {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .success-checkmark {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      position: relative;
-    }
-
-    .checkmark {
-      width: 25px;
-      height: 45px;
-      border-right: 6px solid #fff;
-      border-bottom: 6px solid #fff;
-      transform: rotate(45deg) translateY(-5px);
-      animation: successCheckmark 0.5s ease-out forwards;
-    }
-
-    .input-error {
-      border-color: #ef4444 !important;
-    }
-
-    .error-message {
-      color: #ef4444;
-      font-size: 0.75rem;
-      margin-top: 0.25rem;
-    }
-
-    .toast-success {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 24px 36px;
-      border-radius: 20px;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
-      animation: fadeIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      min-width: 320px;
-      justify-content: center;
-      backdrop-filter: blur(10px);
-    }
-
-    .checkmark-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background-color: #22c55e !important;
-      animation: scaleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .checkmark-svg {
-      stroke-dasharray: 50;
-      stroke-dashoffset: 50;
-      animation: checkmark 0.6s ease-out 0.2s forwards;
-    }
-
-    @keyframes scaleIn {
-      0% {
-        transform: scale(0) rotate(-180deg);
-        opacity: 0;
-      }
-      50% {
-        transform: scale(1.1) rotate(10deg);
-      }
-      100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-      }
-    }
-  </style>
+        /* Anonymous Avatar Styles */
+        .anonymous-avatar {
+            background: linear-gradient(135deg, #6B7280, #9CA3AF);
+        }
+    </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full overflow-auto">
-  <div id="app" class="min-h-full w-full"></div>
+ <body class="bg-gradient-to-br from-red-50 via-yellow-50 to-red-50 h-full"><!-- Disclaimer Modal (Shown on first visit) -->
+  <div id="disclaimer-modal" class="fixed inset-0 modal-backdrop z-[9999] flex items-center justify-center p-4">
+   <div class="disclaimer-modal-content bg-white rounded-3xl p-8 md:p-12 max-w-2xl w-full shadow-2xl border-4 border-yellow-400">
+    <div class="text-center mb-8">
+     <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl"><i class="fas fa-exclamation-triangle text-white text-5xl"></i>
+     </div>
+     <h2 class="text-4xl font-black text-gray-800 mb-4"><span class="gradient-text">THÔNG BÁO QUAN TRỌNG</span></h2>
+    </div>
+    <div class="bg-gradient-to-r from-red-50 to-yellow-50 border-l-4 border-red-600 p-6 rounded-xl mb-8">
+     <p class="text-lg text-gray-800 leading-relaxed text-center font-semibold">Trang web đang có mục đích <strong class="text-red-600">thử nghiệm</strong> chưa đưa vào hoạt động chính thức, hãy truy cập thường xuyên để nhận tin tức mới.</p>
+    </div>
+    <div class="mb-8"><label class="flex items-start space-x-4 cursor-pointer p-4 bg-gray-50 rounded-xl border-2 border-gray-300 hover:border-red-400 transition-all"> <input type="checkbox" id="disclaimer-checkbox" class="w-6 h-6 mt-1 text-red-600 focus:ring-red-500 border-gray-300 rounded cursor-pointer" onchange="toggleDisclaimerButton()"> <span class="text-gray-700 font-semibold text-lg select-none"> Tôi đã đọc và hiểu thông báo này </span> </label>
+    </div><button id="disclaimer-btn" disabled onclick="closeDisclaimerModal()" class="w-full py-4 rounded-xl font-bold text-xl transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-gray-200 enabled:bg-gradient-to-r enabled:from-red-600 enabled:to-red-700 enabled:text-white enabled:hover:from-red-700 enabled:hover:to-red-800 enabled:transform enabled:hover:scale-105"> <i class="fas fa-door-open mr-2"></i>Truy Cập Website </button>
+   </div>
+  </div><!-- Falling Petals Container -->
+  <div id="petals-container"></div><!-- Toast Container -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 flex flex-col gap-2"></div><!-- Fake Sales Notification Container (Bottom Left) -->
+  <div id="sales-notification-container" class="fixed bottom-24 left-6 z-40"></div><!-- Success Modal -->
+  <div id="success-modal" class="hidden fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4">
+   <div class="bg-white rounded-3xl p-12 max-w-lg w-full text-center transform transition-all shadow-2xl">
+    <div class="mb-8 relative">
+     <svg class="w-32 h-32 mx-auto" viewbox="0 0 120 120"><circle class="circle-animated" cx="60" cy="60" r="54" fill="none" stroke="#10B981" stroke-width="4" stroke-dasharray="340" stroke-dashoffset="340" stroke-linecap="round" />
+     </svg>
+     <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-32 h-32 bg-green-100 rounded-full flex items-center justify-center checkmark-animated"><i class="fas fa-check text-6xl text-green-500"></i>
+      </div>
+     </div>
+    </div>
+    <h3 class="text-3xl font-bold text-gray-800 mb-4">🎉 Đặt Hàng Thành Công!</h3>
+    <p class="text-gray-600 text-lg mb-3">Cảm ơn bạn đã tin tưởng và mua hàng tại DOPI PRE.</p>
+    <p class="text-red-600 font-semibold mb-8"><i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i> Vui lòng gửi Bill chuyển khoản để được kích hoạt ngay!</p><!-- Smart Checkout Buttons -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"><button onclick="sendOrderToTelegram()" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-4 rounded-xl font-bold text-lg btn-primary hover:from-blue-600 hover:to-blue-700 shadow-lg flex items-center justify-center space-x-2"> <i class="fab fa-telegram text-2xl"></i> <span>Gửi qua Telegram</span> </button> <button onclick="sendOrderToZalo()" disabled class="bg-gray-400 text-gray-200 px-6 py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center space-x-2 cursor-not-allowed opacity-60"> <i class="fas fa-comments text-2xl"></i> <span>Zalo (Bảo trì)</span> </button>
+    </div><button onclick="closeSuccessModal()" class="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-10 py-4 rounded-xl font-bold text-lg btn-primary hover:from-gray-600 hover:to-gray-700 shadow-lg"> <i class="fas fa-times-circle mr-2"></i>Đóng </button>
+   </div>
+  </div><!-- Telegram Floating Button --> <a href="https://t.me/tomxinh917" target="_blank" rel="noopener noreferrer" class="telegram-float fixed bottom-6 right-6 w-16 h-16 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center shadow-2xl z-40 transition-all"> <i class="fab fa-telegram-plane text-white text-3xl"></i> </a> <!-- Header -->
+  <header class="bg-gradient-to-r from-red-600 via-red-700 to-red-600 shadow-2xl sticky top-0 z-40">
+   <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between flex-wrap gap-4">
+     <div class="flex items-center space-x-3">
+      <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-gift text-red-600 text-2xl"></i>
+      </div>
+      <div>
+       <h1 class="text-3xl font-black text-yellow-300 tracking-wide">DOPI PRE</h1>
+       <p class="text-yellow-100 text-xs font-semibold">Khai Xuân Như Ý 🧧</p>
+      </div>
+     </div><!-- Search Box -->
+     <div class="flex-1 max-w-md mx-4">
+      <div class="relative"><input type="text" id="search-input" placeholder="🔍 Tìm kiếm sản phẩm..." oninput="searchProducts()" class="w-full px-4 py-3 pr-12 rounded-full border-2 border-yellow-400 focus:outline-none focus:border-yellow-500 bg-white text-gray-800 font-semibold shadow-lg"> <i class="fas fa-search absolute right-5 top-1/2 transform -translate-y-1/2 text-red-600 text-xl"></i>
+      </div>
+     </div>
+     <nav class="hidden md:flex items-center space-x-1"><button onclick="showPage('home')" class="nav-btn px-4 py-2 text-white font-semibold hover:bg-red-800 rounded-lg transition-all"> <i class="fas fa-home mr-1"></i>Trang chủ </button> <button onclick="showPage('policy')" class="nav-btn px-4 py-2 text-white font-semibold hover:bg-red-800 rounded-lg transition-all"> <i class="fas fa-shield-alt mr-1"></i>Chính sách bảo hành </button> <button onclick="showPage('about')" class="nav-btn px-4 py-2 text-white font-semibold hover:bg-red-800 rounded-lg transition-all"> <i class="fas fa-info-circle mr-1"></i>Về chúng tôi </button> <button onclick="showPage('contact')" class="nav-btn px-4 py-2 text-white font-semibold hover:bg-red-800 rounded-lg transition-all"> <i class="fas fa-phone-alt mr-1"></i>Liên hệ </button>
+     </nav>
+     <div class="flex items-center space-x-4"><button onclick="toggleCart()" class="relative p-3 bg-yellow-400 hover:bg-yellow-500 rounded-full transition-all shadow-lg"> <i class="fas fa-shopping-cart text-2xl text-red-600"></i> <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg">0</span> </button>
+     </div>
+    </div><!-- Mobile Menu -->
+    <nav class="md:hidden mt-4 flex flex-wrap gap-2"><button onclick="showPage('home')" class="nav-btn px-3 py-2 text-white text-sm font-semibold bg-red-800 rounded-lg"> <i class="fas fa-home mr-1"></i>Trang chủ </button> <button onclick="showPage('policy')" class="nav-btn px-3 py-2 text-white text-sm font-semibold bg-red-800 rounded-lg"> <i class="fas fa-shield-alt mr-1"></i>Bảo hành </button> <button onclick="showPage('about')" class="nav-btn px-3 py-2 text-white text-sm font-semibold bg-red-800 rounded-lg"> <i class="fas fa-info-circle mr-1"></i>Về chúng tôi </button> <button onclick="showPage('contact')" class="nav-btn px-3 py-2 text-white text-sm font-semibold bg-red-800 rounded-lg"> <i class="fas fa-phone-alt mr-1"></i>Liên hệ </button>
+    </nav>
+   </div>
+  </header><!-- Main Content -->
+  <main class="container mx-auto px-4"><!-- Home Page -->
+   <div id="page-home" class="page-content"><!-- Hero Section with Countdown -->
+    <section class="golden-border bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 text-white py-20 my-8 rounded-3xl shadow-2xl overflow-hidden relative">
+     <div class="absolute inset-0 opacity-10">
+      <div class="text-9xl">
+       🧧🎋🏮🎊🧧🎋🏮🎊
+      </div>
+     </div>
+     <div class="relative z-10 text-center">
+      <h2 class="text-5xl md:text-6xl font-black mb-4 drop-shadow-2xl">🎊 DOPI PRE 🎊</h2>
+      <p class="text-3xl md:text-4xl font-bold mb-6 text-yellow-200 drop-shadow-lg">Khai Xuân Như Ý - Sale Tụt Quần</p><!-- Countdown Timer -->
+      <div class="mb-6">
+       <p class="text-xl md:text-2xl font-bold mb-4 text-yellow-100">⏰ Ưu đãi Tết kết thúc sau:</p>
+       <div class="flex justify-center items-center space-x-3 md:space-x-6">
+        <div class="countdown-box px-4 md:px-6 py-3 md:py-4 rounded-xl text-center">
+         <div id="countdown-hours" class="text-3xl md:text-5xl font-black text-yellow-300">
+          00
+         </div>
+         <div class="text-xs md:text-sm font-semibold text-yellow-100 mt-1">
+          Giờ
+         </div>
+        </div>
+        <div class="text-4xl md:text-6xl font-black text-yellow-300">
+         :
+        </div>
+        <div class="countdown-box px-4 md:px-6 py-3 md:py-4 rounded-xl text-center">
+         <div id="countdown-minutes" class="text-3xl md:text-5xl font-black text-yellow-300">
+          00
+         </div>
+         <div class="text-xs md:text-sm font-semibold text-yellow-100 mt-1">
+          Phút
+         </div>
+        </div>
+        <div class="text-4xl md:text-6xl font-black text-yellow-300">
+         :
+        </div>
+        <div class="countdown-box px-4 md:px-6 py-3 md:py-4 rounded-xl text-center">
+         <div id="countdown-seconds" class="text-3xl md:text-5xl font-black text-yellow-300">
+          00
+         </div>
+         <div class="text-xs md:text-sm font-semibold text-yellow-100 mt-1">
+          Giây
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-base md:text-lg">
+       <div class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm"><i class="fas fa-bolt text-yellow-300 text-xl"></i> <span class="font-bold">Giá Shock Tết</span>
+       </div>
+       <div class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm"><i class="fas fa-gift text-yellow-300 text-xl"></i> <span class="font-bold">Quà Tặng Khủng</span>
+       </div>
+       <div class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm"><i class="fas fa-star text-yellow-300 text-xl"></i> <span class="font-bold">Bảo Hành Vĩnh Viễn</span>
+       </div>
+      </div>
+     </div>
+    </section><!-- Products Section -->
+    <section class="py-8">
+     <div class="flex items-center justify-between mb-8">
+      <h3 class="text-4xl font-black gradient-text">🎁 Sản Phẩm Hot Nhất Tết</h3>
+      <div class="hidden md:block text-red-600 font-bold animate-pulse"><i class="fas fa-fire mr-2"></i>Đang Sale Cực Mạnh!
+      </div>
+     </div><!-- Category Tabs -->
+     <div class="mb-8 overflow-x-auto pb-4">
+      <div class="flex space-x-3 min-w-max"><button onclick="filterByCategory('all')" class="category-tab active px-6 py-3 rounded-xl font-bold text-sm bg-white border-2 border-red-200 shadow-md"> <i class="fas fa-th-large mr-2"></i>Tất cả </button> <button onclick="filterByCategory('map')" class="category-tab px-6 py-3 rounded-xl font-bold text-sm bg-white border-2 border-red-200 shadow-md"> <i class="fas fa-map-marked-alt mr-2"></i>Bản đồ &amp; Xe </button> <button onclick="filterByCategory('ai')" class="category-tab px-6 py-3 rounded-xl font-bold text-sm bg-white border-2 border-red-200 shadow-md"> <i class="fas fa-robot mr-2"></i>AI &amp; Chatbot </button> <button onclick="filterByCategory('design')" class="category-tab px-6 py-3 rounded-xl font-bold text-sm bg-white border-2 border-red-200 shadow-md"> <i class="fas fa-palette mr-2"></i>Thiết kế &amp; Work </button> <button onclick="filterByCategory('entertainment')" class="category-tab px-6 py-3 rounded-xl font-bold text-sm bg-white border-2 border-red-200 shadow-md"> <i class="fas fa-gamepad mr-2"></i>Giải trí </button>
+      </div>
+     </div>
+     <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Products will be rendered here -->
+     </div>
+     <div id="no-products-message" class="hidden text-center py-20"><i class="fas fa-search text-7xl text-gray-300 mb-4"></i>
+      <p class="text-2xl font-bold text-gray-500">Không tìm thấy sản phẩm phù hợp</p>
+      <p class="text-gray-400 mt-2">Vui lòng thử từ khóa khác</p>
+     </div>
+    </section><!-- Discount Code Gift Box -->
+    <section class="py-12">
+     <div class="golden-border bg-gradient-to-r from-yellow-400 via-red-500 to-yellow-400 rounded-3xl p-8 md:p-12 shadow-2xl text-center">
+      <div class="flex justify-center mb-6">
+       <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-2xl animate-bounce"><i class="fas fa-gift text-6xl text-red-600"></i>
+       </div>
+      </div>
+      <h3 class="text-4xl md:text-5xl font-black text-white mb-4 drop-shadow-lg">🎁 QUÀ TẶNG ĐẶC BIỆT 🎁</h3>
+      <p class="text-2xl md:text-3xl font-bold text-yellow-100 mb-6">Tặng bạn mã giảm giá 10%</p>
+      <div class="bg-white bg-opacity-20 backdrop-blur-md border-4 border-yellow-300 rounded-2xl p-6 max-w-md mx-auto">
+       <p class="text-white font-semibold mb-3 text-lg">Mã giảm giá:</p>
+       <div class="flex items-center justify-center space-x-3"><code class="text-3xl md:text-4xl font-black text-yellow-300 tracking-wider bg-black bg-opacity-40 px-6 py-3 rounded-lg"> VUITETSAMQUA </code> <button onclick="copyText('VUITETSAMQUA', '🎉 Đã sao chép mã giảm giá!')" class="bg-white text-red-600 p-3 rounded-lg hover:bg-yellow-100 transition-all shadow-lg"> <i class="fas fa-copy text-2xl"></i> </button>
+       </div>
+       <p class="text-yellow-100 text-sm mt-4 font-semibold">Áp dụng khi thanh toán để được giảm 10% tổng đơn hàng!</p>
+      </div>
+     </div>
+    </section><!-- Testimonials Section -->
+    <section class="py-16">
+     <h3 class="text-4xl font-black gradient-text text-center mb-12"><i class="fas fa-comments mr-3"></i>Khách hàng nói gì về DOPI PRE?</h3>
+     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Testimonial 1 -->
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-xl border-2 border-red-200">
+       <div class="flex items-center space-x-3 mb-4">
+        <div class="w-14 h-14 anonymous-avatar rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-user-secret text-white text-2xl"></i>
+        </div>
+        <div>
+         <h5 class="font-bold text-gray-800">User27784</h5>
+         <div class="flex text-yellow-500 text-sm"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-600 text-sm italic leading-relaxed">"Shop uy tín lắm! Mua Canva Pro về xài ngon, giá lại rẻ hơn mua chính hãng nhiều. Support nhanh qua Telegram, cài đặt hướng dẫn tận tình. Sẽ quay lại ủng hộ!"</p>
+      </div><!-- Testimonial 2 -->
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-xl border-2 border-red-200">
+       <div class="flex items-center space-x-3 mb-4">
+        <div class="w-14 h-14 anonymous-avatar rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-robot text-white text-2xl"></i>
+        </div>
+        <div>
+         <h5 class="font-bold text-gray-800">Client_9921</h5>
+         <div class="flex text-yellow-500 text-sm"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-600 text-sm italic leading-relaxed">"Mình mua ChatGPT Plus ở đây giá chỉ bằng 1/3 mua bên ngoài, mà vẫn xài ngon lành không bị lỗi gì. Admin support nhiệt tình, trả lời tin nhắn siêu nhanh. Recommend 10/10!"</p>
+      </div><!-- Testimonial 3 -->
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-xl border-2 border-red-200">
+       <div class="flex items-center space-x-3 mb-4">
+        <div class="w-14 h-14 anonymous-avatar rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-user-shield text-white text-2xl"></i>
+        </div>
+        <div>
+         <h5 class="font-bold text-gray-800">Member_007</h5>
+         <div class="flex text-yellow-500 text-sm"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-600 text-sm italic leading-relaxed">"Lần đầu mua thấy hơi lo, nhưng sau khi test thử thì quá ổn. Key Windows kích hoạt thành công ngay, bảo hành trọn đời nữa. Giá Tết giảm sâu, mua nhiều luôn cho cả công ty!"</p>
+      </div><!-- Testimonial 4 -->
+      <div class="testimonial-card bg-white rounded-2xl p-6 shadow-xl border-2 border-red-200">
+       <div class="flex items-center space-x-3 mb-4">
+        <div class="w-14 h-14 anonymous-avatar rounded-full flex items-center justify-center shadow-lg"><i class="fas fa-user-astronaut text-white text-2xl"></i>
+        </div>
+        <div>
+         <h5 class="font-bold text-gray-800">User8812</h5>
+         <div class="flex text-yellow-500 text-sm"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+         </div>
+        </div>
+       </div>
+       <p class="text-gray-600 text-sm italic leading-relaxed">"Shop này top 1 về độ uy tín luôn! Mua Google Drive Unlimited xài cả năm chưa gặp vấn đề gì. Admin còn hỗ trợ cài đặt qua Ultraviewer miễn phí. Quá hài lòng!"</p>
+      </div>
+     </div>
+    </section>
+   </div><!-- Policy Page -->
+   <div id="page-policy" class="page-content hidden py-12">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+     <h2 class="text-4xl font-black gradient-text mb-8 text-center"><i class="fas fa-shield-alt mr-3"></i>Chính Sách Bảo Hành</h2>
+     <div class="space-y-8">
+      <div class="border-l-4 border-red-600 pl-6">
+       <h3 class="text-2xl font-bold text-gray-800 mb-3"><i class="fas fa-exchange-alt text-red-600 mr-2"></i>Chính Sách 1 Đổi 1</h3>
+       <p class="text-gray-700 leading-relaxed">Cam kết bảo hành <strong>1 đổi 1 trong vòng 30 ngày đầu tiên</strong> nếu sản phẩm gặp bất kỳ lỗi nào do nhà cung cấp. Quý khách chỉ cần liên hệ qua Telegram hoặc Hotline, chúng tôi sẽ xử lý ngay lập tức và hoàn toàn miễn phí.</p>
+      </div>
+      <div class="border-l-4 border-yellow-500 pl-6">
+       <h3 class="text-2xl font-bold text-gray-800 mb-3"><i class="fas fa-undo text-yellow-500 mr-2"></i>Chính Sách Hoàn Tiền 100%</h3>
+       <p class="text-gray-700 leading-relaxed">Nếu sản phẩm không hoạt động đúng như mô tả hoặc bạn không hài lòng với dịch vụ, chúng tôi cam kết <strong>hoàn tiền 100%</strong> trong vòng 7 ngày đầu tiên. Không cần lý do, không hỏi han, chỉ cần một tin nhắn là chúng tôi hoàn tiền ngay.</p>
+      </div>
+      <div class="border-l-4 border-green-600 pl-6">
+       <h3 class="text-2xl font-bold text-gray-800 mb-3"><i class="fas fa-infinity text-green-600 mr-2"></i>Hỗ Trợ Trọn Đời</h3>
+       <p class="text-gray-700 leading-relaxed">Mọi sản phẩm mua tại DOPI PRE đều được hỗ trợ kỹ thuật <strong>trọn đời</strong>. Bạn gặp vấn đề gì về cài đặt, sử dụng hay bất kỳ thắc mắc nào, chúng tôi luôn sẵn sàng hỗ trợ qua Telegram, Zalo hoặc Ultraviewer/TeamViewer để cài đặt từ xa miễn phí.</p>
+      </div>
+      <div class="border-l-4 border-blue-600 pl-6">
+       <h3 class="text-2xl font-bold text-gray-800 mb-3"><i class="fas fa-headset text-blue-600 mr-2"></i>Hỗ Trợ Cài Đặt Từ Xa</h3>
+       <p class="text-gray-700 leading-relaxed">Đội ngũ kỹ thuật viên chuyên nghiệp của chúng tôi sẵn sàng hỗ trợ cài đặt từ xa qua <strong>Ultraviewer hoặc TeamViewer</strong> hoàn toàn miễn phí. Bạn không cần hiểu biết về công nghệ, chỉ cần ngồi yên, chúng tôi sẽ lo tất cả.</p>
+      </div>
+      <div class="bg-red-50 border-2 border-red-300 rounded-xl p-6 mt-8">
+       <h3 class="text-xl font-bold text-red-700 mb-3"><i class="fas fa-exclamation-triangle mr-2"></i>Lưu Ý Quan Trọng</h3>
+       <ul class="space-y-2 text-gray-700">
+        <li class="flex items-start"><i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i> <span>Bảo hành không áp dụng cho các trường hợp vi phạm điều khoản sử dụng của nhà cung cấp gốc.</span></li>
+        <li class="flex items-start"><i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i> <span>Vui lòng giữ lại Bill chuyển khoản để làm căn cứ bảo hành.</span></li>
+        <li class="flex items-start"><i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i> <span>Mọi thắc mắc xin liên hệ qua Telegram hoặc Hotline để được giải đáp nhanh nhất.</span></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div><!-- About Page -->
+   <div id="page-about" class="page-content hidden py-12">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+     <h2 class="text-4xl font-black gradient-text mb-8 text-center"><i class="fas fa-store mr-3"></i>Về Chúng Tôi</h2>
+     <div class="space-y-6 text-gray-700 leading-relaxed">
+      <p class="text-lg"><strong class="text-red-600 text-2xl">DOPI PRE</strong> là đơn vị tiên phong trong lĩnh vực cung cấp các sản phẩm số, tài khoản phần mềm cao cấp với giá cả hợp lý nhất thị trường. Chúng tôi tự hào là đối tác tin cậy của hàng chục nghìn khách hàng trên toàn quốc.</p>
+      <div class="bg-gradient-to-r from-red-50 to-yellow-50 p-6 rounded-xl border-l-4 border-red-600">
+       <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-bullseye text-red-600 mr-2"></i>Sứ Mệnh</h3>
+       <p>Mang đến cho mọi người cơ hội tiếp cận các phần mềm, công cụ số hàng đầu thế giới với chi phí thấp nhất, giúp nâng cao năng suất làm việc, học tập và sáng tạo.</p>
+      </div>
+      <div class="bg-gradient-to-r from-yellow-50 to-red-50 p-6 rounded-xl border-l-4 border-yellow-500">
+       <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-eye text-yellow-600 mr-2"></i>Tầm Nhìn</h3>
+       <p>Trở thành nền tảng số 1 Việt Nam trong lĩnh vực phân phối sản phẩm số, được khách hàng tin tưởng và lựa chọn nhờ chất lượng dịch vụ xuất sắc và chính sách hậu mãi tốt nhất.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mt-8">
+       <div class="bg-blue-50 p-6 rounded-xl text-center"><i class="fas fa-users text-5xl text-blue-600 mb-3"></i>
+        <h4 class="text-3xl font-bold text-gray-800 mb-2">50,000+</h4>
+        <p class="text-gray-600">Khách Hàng Tin Dùng</p>
+       </div>
+       <div class="bg-green-50 p-6 rounded-xl text-center"><i class="fas fa-box-open text-5xl text-green-600 mb-3"></i>
+        <h4 class="text-3xl font-bold text-gray-800 mb-2">200+</h4>
+        <p class="text-gray-600">Sản Phẩm Đa Dạng</p>
+       </div>
+      </div>
+      <div class="bg-gradient-to-r from-red-600 to-yellow-500 text-white p-8 rounded-xl text-center mt-8">
+       <h3 class="text-3xl font-bold mb-4">🎊 Cam Kết Của Chúng Tôi 🎊</h3>
+       <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div><i class="fas fa-certificate text-5xl mb-3"></i>
+         <p class="font-semibold">Sản Phẩm Chính Hãng 100%</p>
+        </div>
+        <div><i class="fas fa-shield-alt text-5xl mb-3"></i>
+         <p class="font-semibold">Bảo Mật Thông Tin Tuyệt Đối</p>
+        </div>
+        <div><i class="fas fa-clock text-5xl mb-3"></i>
+         <p class="font-semibold">Giao Hàng Siêu Nhanh 24/7</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Contact Page -->
+   <div id="page-contact" class="page-content hidden py-12">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+     <h2 class="text-4xl font-black gradient-text mb-8 text-center"><i class="fas fa-phone-alt mr-3"></i>Liên Hệ Với Chúng Tôi</h2>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="space-y-6">
+       <h3 class="text-2xl font-bold text-gray-800 mb-4">Thông Tin Liên Hệ</h3>
+       <div class="flex items-start space-x-4 bg-blue-50 p-4 rounded-xl">
+        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0"><i class="fab fa-telegram text-white text-2xl"></i>
+        </div>
+        <div>
+         <h4 class="font-bold text-gray-800 mb-1">Telegram (Ưu Tiên)</h4><a href="https://t.me/tomxinh917" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline"> @tomxinh917 </a>
+         <p class="text-sm text-gray-600 mt-1">Phản hồi nhanh nhất, hỗ trợ 24/7</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4 bg-green-50 p-4 rounded-xl">
+        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-white text-2xl"></i>
+        </div>
+        <div>
+         <h4 class="font-bold text-gray-800 mb-1">Hotline</h4>
+         <p class="text-green-600 font-bold text-lg">0123.456.789</p>
+         <p class="text-sm text-gray-600 mt-1">Hỗ trợ từ 8:00 - 22:00 hàng ngày</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4 bg-gray-100 p-4 rounded-xl border-2 border-gray-300">
+        <div class="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-comments text-white text-2xl"></i>
+        </div>
+        <div>
+         <h4 class="font-bold text-gray-800 mb-1">Zalo</h4>
+         <p class="text-gray-500 font-bold">CHƯA CẬP NHẬT</p>
+         <p class="text-sm text-gray-500 mt-1">Đang trong quá trình bảo trì</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4 bg-red-50 p-4 rounded-xl">
+        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-white text-2xl"></i>
+        </div>
+        <div>
+         <h4 class="font-bold text-gray-800 mb-1">Email</h4><a href="mailto:support@dopipre.vn" class="text-red-600 hover:underline"> support@dopipre.vn </a>
+         <p class="text-sm text-gray-600 mt-1">Phản hồi trong vòng 24h</p>
+        </div>
+       </div>
+      </div>
+      <div>
+       <h3 class="text-2xl font-bold text-gray-800 mb-4">Giờ Làm Việc</h3>
+       <div class="bg-gradient-to-br from-red-50 to-yellow-50 p-6 rounded-xl border-2 border-red-200 mb-6">
+        <div class="flex items-center justify-between mb-3"><span class="font-semibold text-gray-700">Thứ 2 - Thứ 7:</span> <span class="font-bold text-red-600">8:00 - 22:00</span>
+        </div>
+        <div class="flex items-center justify-between mb-3"><span class="font-semibold text-gray-700">Chủ Nhật:</span> <span class="font-bold text-red-600">9:00 - 21:00</span>
+        </div>
+        <div class="flex items-center justify-between"><span class="font-semibold text-gray-700">Telegram:</span> <span class="font-bold text-green-600">24/7</span>
+        </div>
+       </div>
+       <div class="bg-yellow-50 border-2 border-yellow-400 rounded-xl p-6">
+        <h4 class="font-bold text-yellow-800 mb-3 flex items-center"><i class="fas fa-star mr-2"></i> Khuyến Mãi Đặc Biệt Tết</h4>
+        <ul class="space-y-2 text-gray-700 text-sm">
+         <li class="flex items-start"><i class="fas fa-gift text-red-600 mr-2 mt-1"></i> <span>Giảm giá <strong>20-50%</strong> tất cả sản phẩm</span></li>
+         <li class="flex items-start"><i class="fas fa-gift text-red-600 mr-2 mt-1"></i> <span>Tặng kèm voucher cho đơn hàng tiếp theo</span></li>
+         <li class="flex items-start"><i class="fas fa-gift text-red-600 mr-2 mt-1"></i> <span>Miễn phí cài đặt và hỗ trợ từ xa</span></li>
+         <li class="flex items-start"><i class="fas fa-gift text-red-600 mr-2 mt-1"></i> <span>Bảo hành trọn đời, đổi mới trong 30 ngày</span></li>
+        </ul>
+       </div>
+       <div class="mt-6 text-center"><a href="https://t.me/tomxinh917" target="_blank" rel="noopener noreferrer" class="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg"> <i class="fab fa-telegram mr-2"></i> Chat Ngay Qua Telegram </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main><!-- Cart Sidebar -->
+  <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-full md:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
+   <div class="p-6 border-b flex items-center justify-between bg-gradient-to-r from-red-600 to-red-700 text-white">
+    <h3 class="text-xl font-bold"><i class="fas fa-shopping-cart mr-2"></i>Giỏ Hàng</h3><button onclick="toggleCart()" class="text-2xl hover:bg-red-800 p-2 rounded-full transition-all"> <i class="fas fa-times"></i> </button>
+   </div>
+   <div id="cart-items" class="flex-1 overflow-y-auto p-6"><!-- Cart items will be rendered here -->
+   </div>
+   <div class="border-t p-6 bg-gradient-to-br from-red-50 to-yellow-50"><!-- Discount Code Section in Cart -->
+    <div class="mb-4 bg-white p-4 rounded-xl border-2 border-yellow-400"><label class="block text-sm font-bold text-gray-700 mb-2"> <i class="fas fa-ticket-alt text-yellow-600 mr-1"></i>Mã giảm giá </label>
+     <div class="flex gap-2"><input type="text" id="discount-code-input" placeholder="Nhập mã giảm giá" class="flex-1 px-3 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 text-sm font-semibold"> <button onclick="applyDiscount()" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-bold text-sm transition-all"> Áp dụng </button>
+     </div>
+     <div id="discount-message" class="hidden mt-2 text-sm"></div>
+    </div>
+    <div id="discount-display" class="hidden mb-3 flex justify-between items-center text-sm font-semibold text-green-600"><span><i class="fas fa-tag mr-1"></i>Giảm giá (10%):</span> <span id="discount-amount">-0đ</span>
+    </div>
+    <div class="flex justify-between items-center mb-4 text-lg font-bold"><span>Tổng cộng:</span>
+     <div class="text-right">
+      <div id="original-total" class="hidden text-sm text-gray-400 line-through"></div><span id="cart-total" class="text-red-600 text-2xl">0đ</span>
+     </div>
+    </div><button onclick="proceedToCheckout()" class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-4 rounded-xl font-bold text-lg btn-primary hover:from-red-700 hover:to-red-800 shadow-lg"> <i class="fas fa-credit-card mr-2"></i>Thanh Toán Ngay </button>
+   </div>
+  </div><!-- Checkout Modal -->
+  <div id="checkout-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+   <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl">
+     <div class="p-6 border-b flex items-center justify-between bg-gradient-to-r from-red-600 to-red-700 text-white rounded-t-2xl">
+      <h3 class="text-2xl font-bold"><i class="fas fa-credit-card mr-2"></i>Thanh Toán</h3><button onclick="closeCheckout()" class="text-2xl hover:bg-red-800 p-2 rounded-full transition-all"> <i class="fas fa-times"></i> </button>
+     </div>
+     <div class="p-6">
+      <div class="grid md:grid-cols-2 gap-8"><!-- Left: Customer Info -->
+       <div>
+        <h4 class="text-xl font-bold mb-4 text-gray-800 flex items-center"><i class="fas fa-user-circle text-red-600 mr-2"></i> Thông Tin Khách Hàng</h4>
+        <form id="checkout-form" class="space-y-4">
+         <div><label for="customer-name" class="block text-sm font-semibold mb-2 text-gray-700"> <i class="fas fa-signature text-red-600 mr-1"></i>Họ và Tên * </label> <input type="text" id="customer-name" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-all" placeholder="Nguyễn Văn A">
+         </div>
+         <div><label for="customer-phone" class="block text-sm font-semibold mb-2 text-gray-700"> <i class="fas fa-mobile-alt text-red-600 mr-1"></i>Số Điện Thoại * </label> <input type="tel" id="customer-phone" required pattern="[0-9]{10,11}" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-all" placeholder="0123456789">
+         </div>
+         <div><label for="customer-email" class="block text-sm font-semibold mb-2 text-gray-700"> <i class="fas fa-envelope text-red-600 mr-1"></i>Email * </label> <input type="email" id="customer-email" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-all" placeholder="email@example.com">
+         </div>
+         <div><label for="customer-note" class="block text-sm font-semibold mb-2 text-gray-700"> <i class="fas fa-comment text-red-600 mr-1"></i>Ghi Chú </label> <textarea id="customer-note" rows="3" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-red-500 transition-all" placeholder="Nhập ghi chú nếu có..."></textarea>
+         </div>
+        </form>
+       </div><!-- Right: Payment Info -->
+       <div>
+        <h4 class="text-xl font-bold mb-4 text-gray-800 flex items-center"><i class="fas fa-wallet text-red-600 mr-2"></i> Thông Tin Thanh Toán</h4><!-- Order Summary -->
+        <div class="bg-gradient-to-br from-red-50 to-yellow-50 p-4 rounded-xl mb-6 border-2 border-red-200">
+         <h5 class="font-semibold mb-3 text-gray-700 flex items-center"><i class="fas fa-receipt mr-2 text-red-600"></i>Đơn hàng của bạn:</h5>
+         <div id="checkout-items" class="space-y-2 mb-3 text-sm"><!-- Items will be rendered here -->
+         </div>
+         <div id="checkout-discount-display" class="hidden border-t-2 border-red-300 pt-2 mb-2 flex justify-between items-center text-sm font-semibold text-green-600"><span><i class="fas fa-tag mr-1"></i>Giảm giá (10%):</span> <span id="checkout-discount-amount">-0đ</span>
+         </div>
+         <div class="border-t-2 border-red-300 pt-3 flex justify-between items-center font-bold text-lg"><span>Tổng cộng:</span>
+          <div class="text-right">
+           <div id="checkout-original-total" class="hidden text-sm text-gray-400 line-through"></div><span id="checkout-total" class="text-red-600 text-2xl">0đ</span>
+          </div>
+         </div>
+        </div><!-- IMPORTANT NOTICE -->
+        <div class="bg-gradient-to-r from-red-600 to-yellow-500 text-white p-5 rounded-xl mb-4 shadow-lg border-4 border-yellow-300">
+         <h5 class="font-black mb-3 text-center text-xl flex items-center justify-center"><i class="fas fa-exclamation-triangle mr-2 text-yellow-300 text-2xl animate-pulse"></i> LƯU Ý CỰC KỲ QUAN TRỌNG!</h5>
+         <div class="bg-white bg-opacity-20 p-4 rounded-lg backdrop-blur-sm">
+          <p class="font-bold mb-3 text-center text-lg">⚠️ SAU KHI CHUYỂN KHOẢN ⚠️</p>
+          <ul class="space-y-2 text-sm">
+           <li class="flex items-start"><i class="fas fa-arrow-right text-yellow-300 mr-2 mt-1 flex-shrink-0"></i> <span><strong>BẮT BUỘC</strong> chụp ảnh màn hình giao dịch (Bill chuyển khoản)</span></li>
+           <li class="flex items-start"><i class="fas fa-arrow-right text-yellow-300 mr-2 mt-1 flex-shrink-0"></i> <span>Gửi Bill qua <strong>Telegram</strong> cho Admin để được xác nhận và kích hoạt ngay lập tức</span></li>
+           <li class="flex items-start"><i class="fas fa-arrow-right text-yellow-300 mr-2 mt-1 flex-shrink-0"></i> <span>Nội dung chuyển khoản: <strong>Tên hoặc Số điện thoại</strong> của bạn</span></li>
+          </ul>
+         </div>
+        </div><!-- QR Code -->
+        <div class="bg-blue-50 p-4 rounded-xl mb-4 border-2 border-blue-300">
+         <h5 class="font-semibold mb-3 text-center text-gray-800 flex items-center justify-center"><i class="fas fa-qrcode text-blue-600 mr-2"></i> Quét Mã QR Để Thanh Toán</h5>
+         <div class="bg-white p-4 rounded-lg flex justify-center shadow-inner">
+          <div class="w-48 h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center border-2 border-blue-300">
+           <div class="text-center"><i class="fas fa-qrcode text-7xl text-blue-400 mb-2"></i>
+            <p class="text-sm text-gray-600 font-semibold">Mã QR Thanh Toán</p>
+           </div>
+          </div>
+         </div>
+        </div><!-- Bank Info -->
+        <div class="bg-green-50 p-4 rounded-xl border-2 border-green-300">
+         <h5 class="font-semibold mb-3 text-gray-800 flex items-center"><i class="fas fa-university text-green-600 mr-2"></i> Hoặc Chuyển Khoản Ngân Hàng</h5>
+         <div class="space-y-3 text-sm">
+          <div class="flex justify-between bg-white p-2 rounded"><span class="text-gray-600 font-semibold">Ngân hàng:</span> <span class="font-bold text-green-700">Vietcombank</span>
+          </div>
+          <div class="flex justify-between bg-white p-2 rounded"><span class="text-gray-600 font-semibold">Chủ TK:</span> <span class="font-bold text-gray-800">NGUYEN VAN A</span>
+          </div>
+          <div class="flex justify-between items-center bg-white p-2 rounded"><span class="text-gray-600 font-semibold">Số TK:</span>
+           <div class="flex items-center space-x-2"><span class="font-bold text-gray-500">CHƯA CẬP NHẬT</span>
+           </div>
+          </div>
+          <div class="flex justify-between items-center bg-white p-2 rounded"><span class="text-gray-600 font-semibold">Nội dung:</span>
+           <div class="flex items-center space-x-2"><span id="transfer-content" class="font-bold text-red-600">Tên/SĐT + Tên SP</span> <button onclick="copyText('Tên/SĐT + Tên SP', 'Đã sao chép nội dung chuyển khoản!')" class="text-blue-600 hover:text-blue-800 p-2 bg-blue-100 rounded transition-all"> <i class="fas fa-copy"></i> </button>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="mt-6 flex flex-col sm:flex-row justify-end gap-3"><button onclick="closeCheckout()" class="px-6 py-3 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-600 transition-all"> <i class="fas fa-arrow-left mr-2"></i>Quay Lại </button> <button onclick="submitOrder()" class="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg font-bold text-lg btn-primary hover:from-green-700 hover:to-green-800 shadow-lg"> <i class="fas fa-check-circle mr-2"></i>Xác Nhận Đặt Hàng </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div><!-- Footer -->
+  <footer class="bg-gradient-to-r from-red-900 via-red-800 to-red-900 text-gray-200 mt-16">
+   <div class="container mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+     <div>
+      <div class="flex items-center space-x-3 mb-4">
+       <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center"><i class="fas fa-gift text-red-600 text-2xl"></i>
+       </div>
+       <h4 class="text-2xl font-black text-yellow-300">DOPI PRE</h4>
+      </div>
+      <p class="text-sm mb-4 text-gray-300">Chúng tôi cung cấp các sản phẩm phần mềm, tài khoản premium chính hãng với giá cả hợp lý nhất thị trường. Cam kết bảo hành trọn đời và hỗ trợ tận tình.</p>
+      <div class="flex space-x-3"><a href="#" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all"> <i class="fab fa-facebook-f text-white"></i> </a> <a href="https://t.me/tomxinh917" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all"> <i class="fab fa-telegram-plane text-white"></i> </a> <a href="#" class="w-10 h-10 bg-blue-400 hover:bg-blue-500 rounded-full flex items-center justify-center transition-all"> <i class="fab fa-facebook-messenger text-white"></i> </a>
+      </div>
+     </div>
+     <div>
+      <h4 class="text-xl font-bold text-yellow-300 mb-4"><i class="fas fa-headset mr-2"></i>Hỗ Trợ Khách Hàng</h4>
+      <ul class="space-y-2 text-sm">
+       <li class="flex items-center"><i class="fas fa-phone text-yellow-400 mr-2 w-5"></i> <span>Hotline: <strong>0123.456.789</strong></span></li>
+       <li class="flex items-center"><i class="fas fa-envelope text-yellow-400 mr-2 w-5"></i> <span>Email: support@dopipre.vn</span></li>
+       <li class="flex items-center"><i class="fas fa-clock text-yellow-400 mr-2 w-5"></i> <span>Giờ làm việc: 8:00 - 22:00 (Cả tuần)</span></li>
+       <li class="flex items-center"><i class="fab fa-telegram text-yellow-400 mr-2 w-5"></i> <span>Telegram: Hỗ trợ 24/7</span></li>
+       <li class="flex items-center"><i class="fas fa-desktop text-yellow-400 mr-2 w-5"></i> <span>Hỗ trợ cài đặt qua Ultraviewer/TeamViewer</span></li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-xl font-bold text-yellow-300 mb-4"><i class="fas fa-shield-alt mr-2"></i>Chính Sách</h4>
+      <ul class="space-y-2 text-sm">
+       <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i> <span><strong>Bảo hành 1 đổi 1:</strong> Nếu sản phẩm lỗi trong 30 ngày đầu</span></li>
+       <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i> <span><strong>Hoàn tiền 100%:</strong> Nếu không hài lòng với sản phẩm</span></li>
+       <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i> <span><strong>Hỗ trợ trọn đời:</strong> Giải đáp mọi thắc mắc về sản phẩm</span></li>
+       <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1 flex-shrink-0"></i> <span><strong>Bảo mật thông tin:</strong> Cam kết không chia sẻ dữ liệu khách hàng</span></li>
+      </ul>
+     </div>
+    </div>
+    <div class="border-t border-red-700 mt-8 pt-6 text-center text-sm">
+     <p>© 2024 DOPI PRE. Bản quyền thuộc về chúng tôi. 🧧 Chúc Mừng Năm Mới - Vạn Sự Như Ý 🎊</p>
+    </div>
+   </div>
+  </footer>
   <script>
-    // Translations
-    const translations = {
-      vi: {
-        siteTitle: 'KeyStore Pro',
-        search: 'Tìm kiếm sản phẩm...',
-        cart: 'Giỏ hàng',
-        heroTitle: 'Phần mềm Bản quyền Giá Tốt Nhất',
-        heroSubtitle: 'Tiết kiệm đến 50% - Giao hàng ngay',
-        shopNow: 'Mua ngay',
-        categories: 'Danh mục',
-        allProducts: 'Tất cả sản phẩm',
-        addToCart: 'Thêm vào giỏ',
-        yourCart: 'Giỏ hàng của bạn',
-        emptyCart: 'Giỏ hàng trống',
-        startShopping: 'B����t đầu mua sắm',
-        continueShopping: 'Tiếp tục mua sắm',
-        checkout: 'Thanh toán',
-        subtotal: 'Tạm tính',
-        shipping: 'Phí vận chuyển',
-        free: 'Miễn phí',
-        total: 'Tổng cộng',
-        remove: 'Xóa',
-        quantity: 'SL',
-        selectOption: 'Chọn tùy chọn',
-        addedToCart: 'Đã thêm vào giỏ hàng!',
-        support: 'Hỗ trợ',
-        checkoutTitle: 'Thanh toán',
-        customerInfo: 'Thông tin khách hàng',
-        name: 'Họ và tên',
-        email: 'Email',
-        phone: 'Số điện thoại',
-        paymentMethod: 'Phương thức thanh toán',
-        bankTransfer: 'Chuyển khoản',
-        bankDesc: 'Thanh toán qua QR Code',
-        momo: 'Ví Momo',
-        momoDesc: 'Thanh toán ví điện tử',
-        orderSummary: 'Thông tin đơn hàng',
-        placeOrder: 'Đặt hàng',
-        orderSuccess: 'Đặt hàng thành công!',
-        orderSuccessDesc: 'Vui lòng chuy��n khoản v�� gửi bill qua Telegram',
-        backToCart: 'Quay lại giỏ hàng',
-        backToHome: 'Về trang chủ',
-        secureCheckout: '🔒 Thanh toán bảo mật',
-        cheaperThan: 'Rẻ hơn giá gốc',
-        featuredProducts: 'Sản phẩm nổi bật',
-        aboutTitle: 'Tại sao chọn chúng tôi?',
-        aboutDesc: 'Chúng tôi cung cấp phần mềm bản quyền chính hãng với giá tốt nhất và giao hàng ngay lập tức',
-        warranty: 'Chính sách bảo hành',
-        terms: 'Điều khoản sử dụng',
-        contact: 'Liên hệ',
-        sendProofToTelegram: 'G��i bill chuyển khoản qua Telegram',
-        invalidName: 'Vui lòng nhập họ tên hợp lệ (ít nhất 2 ký tự)',
-        invalidEmail: 'Vui lòng nhập địa chỉ email hợp lệ',
-        invalidPhone: 'Vui lòng nhập số điện thoại hợp lệ (10 chữ số)',
-        contactNow: 'Liên hệ ngay',
-        pleaseContact: 'Vui lòng liên hệ',
-        categories_nav: {
-          'maps': 'Bản đồ & Dẫn đường',
-          'ai': 'AI & Chatbot',
-          'design': 'Thiết kế & Đồ họa',
-          'tools': 'Công cụ & Lưu trữ'
-        },
-        authenticLicense: 'Bản quyền chính hãng',
-        authenticDesc: '100% hợp pháp',
-        bestWarranty: 'Bảo hành tốt nhất',
-        warrantyDesc: 'Hỗ trợ 24/7'
-      },
-      en: {
-        siteTitle: 'KeyStore Pro',
-        search: 'Search products...',
-        cart: 'Cart',
-        heroTitle: 'Best Licensed Software Prices',
-        heroSubtitle: 'Save up to 50% - Instant Delivery',
-        shopNow: 'Shop Now',
-        categories: 'Categories',
-        allProducts: 'All Products',
-        addToCart: 'Add to Cart',
-        yourCart: 'Your Cart',
-        emptyCart: 'Cart is empty',
-        startShopping: 'Start shopping',
-        continueShopping: 'Continue Shopping',
-        checkout: 'Checkout',
-        subtotal: 'Subtotal',
-        shipping: 'Shipping',
-        free: 'Free',
-        total: 'Total',
-        remove: 'Remove',
-        quantity: 'Qty',
-        selectOption: 'Select option',
-        addedToCart: 'Added to cart!',
-        support: 'Support',
-        checkoutTitle: 'Checkout',
-        customerInfo: 'Customer Information',
-        name: 'Full Name',
-        email: 'Email',
-        phone: 'Phone Number',
-        paymentMethod: 'Payment Method',
-        bankTransfer: 'Bank Transfer',
-        bankDesc: 'Pay via QR Code',
-        momo: 'Momo Wallet',
-        momoDesc: 'E-wallet payment',
-        orderSummary: 'Order Summary',
-        placeOrder: 'Place Order',
-        orderSuccess: 'Order Successful!',
-        orderSuccessDesc: 'Please transfer payment and send receipt via Telegram',
-        backToCart: 'Back to Cart',
-        backToHome: 'Back to Home',
-        secureCheckout: '🔒 Secure Checkout',
-        cheaperThan: 'Cheaper than original',
-        featuredProducts: 'Featured Products',
-        aboutTitle: 'Why Choose Us?',
-        aboutDesc: 'We provide genuine licensed software at the best prices with instant delivery',
-        warranty: 'Warranty Policy',
-        terms: 'Terms of Service',
-        contact: 'Contact',
-        sendProofToTelegram: 'Send payment proof via Telegram',
-        invalidName: 'Please enter a valid name (at least 2 characters)',
-        invalidEmail: 'Please enter a valid email address',
-        invalidPhone: 'Please enter a valid phone number (10 digits)',
-        contactNow: 'Contact Now',
-        pleaseContact: 'Please Contact',
-        categories_nav: {
-          'maps': 'Maps & Navigation',
-          'ai': 'AI & Chatbot',
-          'design': 'Design & Graphics',
-          'tools': 'Tools & Storage'
-        },
-        authenticLicense: 'Authentic License',
-        authenticDesc: '100% Legal',
-        bestWarranty: 'Best Warranty',
-        warrantyDesc: '24/7 Support'
-      }
-    };
-
-    const productsData = [
-      {
-        id: 1,
-        category: 'maps',
-        name: 'Vietmap Live',
-        description: 'Dịch vụ dẫn đường cao cấp',
-        image: '🗺️',
-        badge: 'Bán chạy',
-        featured: true,
-        hasVariations: true,
-        variations: [
-          { id: '1h', name: '1 giờ', originalPrice: 50000, price: 35000 },
-          { id: '3d', name: '3 ngày', originalPrice: 150000, price: 99000 },
-          { id: '1y', name: '1 năm', originalPrice: 400000, price: 299000 },
-          { id: '2y', name: '2 năm', originalPrice: 650000, price: 499000 }
-        ]
-      },
-      {
-        id: 2,
-        category: 'ai',
-        name: 'ChatGPT Plus',
-        description: 'Trợ lý AI cao cấp',
-        image: '🤖',
-        badge: 'Giảm giá',
-        featured: true,
-        originalPrice: 350000,
-        price: 250000
-      },
-      {
-        id: 3,
-        category: 'ai',
-        name: 'ChatGPT Business',
-        description: 'Dành cho doanh nghiệp',
-        image: '💼',
-        badge: 'Doanh nghiệp',
-        featured: true,
-        originalPrice: 450000,
-        price: 300000
-      },
-      {
-        id: 4,
-        category: 'design',
-        name: 'Canva Pro',
-        description: 'Công cụ thiết kế chuyên nghiệp',
-        image: '🎨',
-        badge: 'Phổ biến',
-        featured: true,
-        originalPrice: 350000,
-        price: 250000
-      },
-      {
-        id: 5,
-        category: 'tools',
-        name: 'Google Drive Unlimited',
-        description: 'Lưu trữ đám mây không giới hạn',
-        image: '☁️',
-        badge: 'Giá tốt nhất',
-        featured: false,
-        originalPrice: 300000,
-        price: 200000
-      },
-      {
-        id: 6,
-        category: 'tools',
-        name: 'Microsoft 365',
-        description: 'Bộ công cụ văn phòng',
-        image: '📊',
-        badge: 'Cao cấp',
-        featured: true,
-        originalPrice: 400000,
-        price: 280000
-      },
-      {
-        id: 7,
-        category: 'tools',
-        name: 'Rút v�� trả sau Momo',
-        description: 'Rút tiền từ ví trả sau Momo',
-        image: '💰',
-        badge: 'Liên hệ',
-        featured: true,
-        hasVariations: false,
-        contactOnly: true
-      }
-    ];
-
-    // Default configuration
-    const defaultConfig = {
-      background_color: '#ffffff',
-      surface_color: '#f8f9fa',
-      text_color: '#1a1a1a',
-      primary_action_color: '#0066cc',
-      secondary_action_color: '#6c757d',
-      font_family: 'system-ui',
-      font_size: 16,
-      site_title: 'KeyStore Pro',
-      hero_title: 'Phần mềm Bản quyền Giá Tốt Nhất',
-      hero_subtitle: 'Tiết kiệm đến 50%',
-      about_title: 'Tại sao chọn chúng tôi?',
-      about_description: 'Chúng tôi cung cấp phần mềm bản quyền chính hãng với giá tốt nhất',
-      search_placeholder: 'Tìm kiếm sản phẩm...',
-      add_to_cart_text: 'Thêm vào giỏ',
-      checkout_button: 'Thanh toán',
-      telegram_link: 'https://t.me/yourusername'
-    };
-
-    // Application state
-    let cart = [];
-    let isCartOpen = false;
-    let isCheckoutOpen = false;
-    let showOrderSuccess = false;
-    let currentLanguage = 'vi';
-    let selectedCategory = 'all';
-    let selectedPaymentMethod = 'bank';
-    let currentPage = 'home';
-    let carouselIndex = 0;
-    let carouselInterval = null;
-    let formErrors = {};
-    let snowflakes = [];
-    let discountCode = '';
-    let discountApplied = false;
-    let showPolicyModal = false;
-    let policyType = 'terms';
-
-    const validDiscountCodes = ['OAWNSZ-451', 'JAUSDH-7805'];
-
-    function t(key) {
-      const keys = key.split('.');
-      let value = translations[currentLanguage];
-      for (const k of keys) {
-        value = value[k];
-        if (!value) return key;
-      }
-      return value || key;
-    }
-
-    function formatPrice(price) {
-      return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
-    }
-
-    function addToCart(product, variation = null) {
-      const cartItem = {
-        id: variation ? `${product.id}-${variation.id}` : `${product.id}`,
-        productId: product.id,
-        name: product.name,
-        price: variation ? variation.price : product.price,
-        variation: variation ? variation.name : null,
-        quantity: 1,
-        image: product.image
-      };
-
-      const existingIndex = cart.findIndex(item => item.id === cartItem.id);
-      if (existingIndex !== -1) {
-        cart[existingIndex].quantity += 1;
-      } else {
-        cart.push(cartItem);
-      }
-
-      showToast(t('addedToCart'));
-      render();
-    }
-
-    function removeFromCart(itemId) {
-      cart = cart.filter(item => item.id !== itemId);
-      render();
-    }
-
-    function updateQuantity(itemId, newQuantity) {
-      if (newQuantity < 1) return;
-      const item = cart.find(item => item.id === itemId);
-      if (item) {
-        item.quantity = newQuantity;
-        render();
-      }
-    }
-
-    function getCartTotal() {
-      return cart.reduce((total, item) => {
-        return total + (item.price * item.quantity);
-      }, 0);
-    }
-
-    function getDiscountAmount() {
-      if (discountApplied) {
-        return Math.round(getCartTotal() * 0.1); // 10% discount
-      }
-      return 0;
-    }
-
-    function getFinalTotal() {
-      const total = getCartTotal();
-      const discount = getDiscountAmount();
-      return total - discount;
-    }
-
-    function applyDiscountCode() {
-      const input = document.getElementById('discount-code-input');
-      if (!input) return;
-      
-      const code = input.value.trim().toUpperCase();
-      
-      if (validDiscountCodes.includes(code)) {
-        discountCode = code;
-        discountApplied = true;
-        showToast('Mã giảm giá đã được áp dụng! Giảm 10%');
-        render();
-      } else {
-        showToast('Mã giảm giá không hợp lệ');
-        input.classList.add('input-error');
-        setTimeout(() => {
-          input.classList.remove('input-error');
-        }, 2000);
-      }
-    }
-
-    function removeDiscountCode() {
-      discountCode = '';
-      discountApplied = false;
-      render();
-    }
-
-    function showPolicy(type) {
-      policyType = type;
-      showPolicyModal = true;
-      render();
-    }
-
-    function closePolicy() {
-      showPolicyModal = false;
-      render();
-    }
-
-    function toggleLanguage() {
-      currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
-      render();
-    }
-
-    function createSnowflakes() {
-      const snowflakeContainer = document.getElementById('snowflakes');
-      if (!snowflakeContainer) return;
-      
-      snowflakeContainer.innerHTML = '';
-      
-      for (let i = 0; i < 50; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.textContent = '❄';
-        snowflake.style.left = Math.random() * 100 + '%';
-        snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
-        snowflakeContainer.appendChild(snowflake);
-      }
-    }
-
-    function showToast(message) {
-      const config = window.elementSdk?.config || defaultConfig;
-      const toast = document.createElement('div');
-      toast.className = 'toast-success';
-      toast.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-      toast.style.color = config.text_color;
-      toast.style.border = `3px solid ${config.primary_action_color}`;
-      
-      toast.innerHTML = `
-        <div class="checkmark-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="checkmark-svg" d="M5 12L10 17L20 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <span style="font-weight: 700; font-size: ${config.font_size * 1.125}px;">${message}</span>
-      `;
-      
-      document.body.appendChild(toast);
-
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translate(-50%, -50%) scale(0.8)';
-        toast.style.transition = 'all 0.3s ease-out';
-        setTimeout(() => {
-          toast.remove();
-        }, 300);
-      }, 2500);
-    }
-
-    function toggleCart() {
-      isCartOpen = !isCartOpen;
-      if (isCartOpen) {
-        isCheckoutOpen = false;
-        showOrderSuccess = false;
-      }
-      render();
-    }
-
-    function filterByCategory(category) {
-      selectedCategory = category;
-      render();
-    }
-
-    function navigateTo(page) {
-      currentPage = page;
-      isCartOpen = false;
-      isCheckoutOpen = false;
-      showOrderSuccess = false;
-      window.scrollTo(0, 0);
-      render();
-    }
-
-    function proceedToCheckout() {
-      if (cart.length === 0) return;
-      isCheckoutOpen = true;
-      isCartOpen = false;
-      currentPage = 'home';
-      render();
-    }
-
-    function backToCart() {
-      isCheckoutOpen = false;
-      isCartOpen = true;
-      showOrderSuccess = false;
-      render();
-    }
-
-    function backToHome() {
-      isCheckoutOpen = false;
-      isCartOpen = false;
-      showOrderSuccess = false;
-      currentPage = 'home';
-      render();
-    }
-
-    function selectPaymentMethod(method) {
-      selectedPaymentMethod = method;
-      render();
-    }
-
-    function validateName(name) {
-      return name.trim().length >= 2;
-    }
-
-    function validateEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-    }
-
-    function validatePhone(phone) {
-      const phoneRegex = /^(0|\+84)(3|5|7|8|9)[0-9]{8}$/;
-      return phoneRegex.test(phone.replace(/\s/g, ''));
-    }
-
-    function placeOrder(event) {
-      if (event) event.preventDefault();
-      
-      const form = document.getElementById('checkout-form');
-      if (!form) return;
-      
-      const nameInput = form.querySelector('input[name="name"]');
-      const emailInput = form.querySelector('input[name="email"]');
-      const phoneInput = form.querySelector('input[name="phone"]');
-
-      formErrors = {};
-
-      if (!validateName(nameInput.value)) {
-        formErrors.name = t('invalidName');
-      }
-
-      if (!validateEmail(emailInput.value)) {
-        formErrors.email = t('invalidEmail');
-      }
-
-      if (!validatePhone(phoneInput.value)) {
-        formErrors.phone = t('invalidPhone');
-      }
-
-      if (Object.keys(formErrors).length > 0) {
-        render();
-        return;
-      }
-
-      showOrderSuccess = true;
-      render();
-    }
-
-    function startCarousel() {
-      if (carouselInterval) clearInterval(carouselInterval);
-      carouselInterval = setInterval(() => {
-        nextSlide();
-      }, 4000);
-    }
-
-    function stopCarousel() {
-      if (carouselInterval) {
-        clearInterval(carouselInterval);
-        carouselInterval = null;
-      }
-    }
-
-    function nextSlide() {
-      const featured = productsData.filter(p => p.featured);
-      carouselIndex = (carouselIndex + 1) % featured.length;
-      updateCarousel();
-    }
-
-    function prevSlide() {
-      const featured = productsData.filter(p => p.featured);
-      carouselIndex = (carouselIndex - 1 + featured.length) % featured.length;
-      updateCarousel();
-    }
-
-    function updateCarousel() {
-      const track = document.querySelector('.carousel-track');
-      if (track) {
-        track.style.transform = `translateX(-${carouselIndex * 100}%)`;
-      }
-    }
-
-    function ProductCard(product, isCarousel = false) {
-      const config = window.elementSdk?.config || defaultConfig;
-      const hasVariations = product.hasVariations;
-      const contactOnly = product.contactOnly;
-      
-      return `
-        <div class="product-card rounded-xl overflow-hidden shadow-lg ${isCarousel ? 'w-full flex-shrink-0' : ''}" style="background-color: ${config.surface_color}; border: 2px solid ${config.primary_action_color};">
-          <div class="p-6">
-            <div class="text-6xl text-center mb-4">${product.image}</div>
-            <div class="mb-2">
-              <span class="badge" style="background-color: ${config.primary_action_color}; color: ${config.background_color};">
-                ${product.badge}
-              </span>
-            </div>
-            <h3 class="font-bold mb-2" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.125}px;">
-              ${product.name}
-            </h3>
-            <p class="mb-4" style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-              ${product.description}
-            </p>
+        // Products Data với Category và Hình Ảnh Thật
+        const productsData = [
+            {
+                id: 1,
+                name: 'Vietmap Live Pro',
+                description: 'Ứng dụng dẫn đường GPS số 1 Việt Nam',
+                image: 'https://bizweb.dktcdn.net/thumb/grande/100/415/690/products/vm-live-a4fe7821-0223-425b-b935-ce5fb7299f87.png?v=1',
+                category: 'map',
+                hasVariants: true,
+                variants: [
+                    { name: '1 Giờ', price: 20000 },
+                    { name: '3 Ngày', price: 50000 },
+                    { name: '1 Năm', price: 399000 },
+                    { name: '2 Năm', price: 599000 }
+                ],
+                selectedVariant: 0
+            },
+            {
+                id: 2,
+                name: 'ChatGPT Plus/Premium',
+                description: 'Trợ lý AI thông minh nhất hiện nay',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s',
+                category: 'ai',
+                price: 250000,
+                oldPrice: 450000,
+                badge: 'Best Seller',
+                hasVariants: false
+            },
+            {
+                id: 3,
+                name: 'Canva Pro',
+                description: 'Thiết kế đồ họa chuyên nghiệp',
+                image: 'https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxo4K81Ei7WzcnqEk8W.MgwbrV7KGaO26hIr2djuNhOO6._j8uCsDS5VM2l2zZ5lg_lA3NC6rF2454qkJTgncsPY-&format=source',
+                category: 'design',
+                price: 180000,
+                oldPrice: 300000,
+                hasVariants: false
+            },
+            {
+                id: 4,
+                name: 'Google Drive Unlimited',
+                description: 'Lưu trữ không giới hạn trọn đời',
+                image: 'https://play-lh.googleusercontent.com/t-juVwXA8lDAk8uQ2L6d6K83jpgQoqmK1icB_l9yvhIAQ2QT_1XbRwg5IpY08906qEw',
+                category: 'design',
+                price: 150000,
+                oldPrice: 250000,
+                hasVariants: false
+            },
+            {
+                id: 5,
+                name: 'Key Windows 11 Pro',
+                description: 'Bản quyền vĩnh viễn, kích hoạt online',
+                image: 'https://cellphones.com.vn/sforum/wp-content/uploads/2023/11/windows-11-1.jpg',
+                category: 'design',
+                price: 85000,
+                oldPrice: 150000,
+                hasVariants: false
+            },
+            {
+                id: 6,
+                name: 'Microsoft Office 365',
+                description: 'Bộ công cụ văn phòng chuyên nghiệp',
+                image: 'https://hoanghamobile.com/tin-tuc/wp-content/uploads/2025/09/Office-la-gi.jpg',
+                category: 'design',
+                price: 120000,
+                oldPrice: 200000,
+                hasVariants: false
+            }
+        ];
+        
+        // Fake sales notification data với User ID
+        const fakeNames = [
+            'User27784', 'Client_9921', 'Member_007', 'User8812', 'Client_5543', 
+            'User1920', 'Member_442', 'Client_7788', 'User3309', 'Member_156',
+            'User6677', 'Client_2234', 'Member_889', 'User4421', 'Client_9087'
+        ];
+        
+        // Cart state
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Discount state
+        let appliedDiscount = 0;
+        let discountCode = '';
+        
+        // Current page
+        let currentPage = 'home';
+        
+        // Search filter
+        let currentSearchTerm = '';
+        
+        // Category filter
+        let currentCategory = 'all';
+        
+        // Order info for Smart Checkout
+        let lastOrderInfo = {
+            name: '',
+            phone: '',
+            items: [],
+            total: 0
+        };
+        
+        // Disclaimer Modal State
+        let hasSeenDisclaimer = localStorage.getItem('hasSeenDisclaimer') === 'true';
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            updateCartUI();
+            createFallingPetals();
+            showPage('home');
+            startCountdown();
+            startFakeSalesNotifications();
             
-            ${contactOnly ? `
-              <div class="mb-3 text-center">
-                <span class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.25}px;">
-                  ${t('pleaseContact')}
-                </span>
-              </div>
-              <a 
-                href="${config.telegram_link || defaultConfig.telegram_link}" 
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block w-full py-3 rounded-lg font-semibold transition-all hover:opacity-90 text-center"
-                style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px; text-decoration: none;"
-              >
-                📱 ${t('contactNow')}
-              </a>
-            ` : hasVariations ? `
-              <select 
-                data-product-id="${product.id}" 
-                class="w-full mb-3 px-3 py-2 border-2 rounded-lg"
-                style="background-color: ${config.background_color}; color: ${config.text_color}; border-color: ${config.secondary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-              >
-                <option value="">${t('selectOption')}</option>
-                ${product.variations.map(v => `
-                  <option value="${v.id}">
-                    ${v.name} - ${formatPrice(v.price)}
-                  </option>
-                `).join('')}
-              </select>
-              <button 
-                onclick="handleAddToCart(${product.id})"
-                class="w-full py-3 rounded-lg font-semibold transition-all hover:opacity-90"
-                style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-              >
-                ${config.add_to_cart_text || t('addToCart')}
-              </button>
-            ` : `
-              <div class="mb-3">
-                <div class="flex items-center gap-2">
-                  <span class="line-through" style="color: ${config.secondary_action_color}; opacity: 0.6; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                    ${formatPrice(product.originalPrice)}
-                  </span>
-                  <span class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.5}px;">
-                    ${formatPrice(product.price)}
-                  </span>
-                </div>
-              </div>
-              <button 
-                onclick="handleAddToCart(${product.id})"
-                class="w-full py-3 rounded-lg font-semibold transition-all hover:opacity-90"
-                style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-              >
-                ${config.add_to_cart_text || t('addToCart')}
-              </button>
-            `}
-          </div>
-        </div>
-      `;
-    }
-
-    function CartDrawer() {
-      if (!isCartOpen) return '';
-      
-      const config = window.elementSdk?.config || defaultConfig;
-      const subtotal = getCartTotal();
-      const shipping = 0;
-      const discount = getDiscountAmount();
-      const total = getFinalTotal();
-
-      return `
-        <div class="fixed inset-0 z-50" style="background-color: rgba(0, 0, 0, 0.8);" onclick="toggleCart()">
-          <div class="cart-drawer fixed right-0 top-0 h-full w-full max-w-md shadow-2xl flex flex-col" 
-               style="background-color: ${config.surface_color}; border-left: 2px solid ${config.primary_action_color};"
-               onclick="event.stopPropagation()">
-            
-            <div class="p-6 border-b" style="border-color: ${config.primary_action_color};">
-              <div class="flex items-center justify-between">
-                <h2 class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.5}px;">
-                  ${t('yourCart')} (${cart.length})
-                </h2>
-                <button onclick="toggleCart()" class="p-2 hover:opacity-70" style="color: ${config.text_color};">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            
-            <div class="flex-1 overflow-auto p-6">
-              ${cart.length === 0 ? `
-                <div class="flex flex-col items-center justify-center h-full text-center py-12">
-                  <svg class="w-24 h-24 mb-4" style="color: ${config.primary_action_color};" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                  </svg>
-                  <p class="text-lg mb-2" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.125}px;">
-                    ${t('emptyCart')}
-                  </p>
-                  <p class="mb-6" style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                    ${t('startShopping')}
-                  </p>
-                  <button 
-                    onclick="toggleCart()"
-                    class="px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-all"
-                    style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                  >
-                    ${t('continueShopping')}
-                  </button>
-                </div>
-              ` : `
-                <div class="space-y-4">
-                  ${cart.map(item => `
-                    <div class="cart-item flex gap-4 p-4 rounded-xl relative" style="background-color: ${config.background_color}; border: 2px solid ${config.secondary_action_color};">
-                      <div class="text-4xl flex-shrink-0">${item.image}</div>
-                      <div class="flex-1 min-w-0">
-                        <h4 class="font-semibold mb-1 truncate" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                          ${item.name}
-                        </h4>
-                        ${item.variation ? `
-                          <p class="text-sm mb-2" style="color: ${config.text_color}; opacity: 0.7; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                            ${item.variation}
-                          </p>
-                        ` : ''}
-                        <div class="flex items-center justify-between gap-3">
-                          <div class="flex items-center gap-2">
-                            <button 
-                              onclick="updateQuantity('${item.id}', ${item.quantity - 1})"
-                              class="w-8 h-8 rounded-lg flex items-center justify-center font-bold transition-all hover:opacity-90"
-                              style="background-color: ${config.secondary_action_color}; color: ${config.text_color};"
-                            >−</button>
-                            <span class="w-8 text-center font-semibold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                              ${item.quantity}
-                            </span>
-                            <button 
-                              onclick="updateQuantity('${item.id}', ${item.quantity + 1})"
-                              class="w-8 h-8 rounded-lg flex items-center justify-center font-bold transition-all hover:opacity-90"
-                              style="background-color: ${config.primary_action_color}; color: ${config.background_color};"
-                            >+</button>
-                          </div>
-                          <div class="text-right">
-                            <div class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.125}px;">
-                              ${formatPrice(item.price * item.quantity)}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <button 
-                        onclick="removeFromCart('${item.id}')"
-                        class="delete-button absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center transition-all hover:opacity-90"
-                        style="background-color: #ef4444; color: #ffffff;"
-                      >
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                      </button>
-                    </div>
-                  `).join('')}
-                </div>
-              `}
-            </div>
-            
-            ${cart.length > 0 ? `
-              <div class="border-t p-6 space-y-4" style="border-color: ${config.primary_action_color};">
-                <div class="space-y-2">
-                  <div class="flex justify-between">
-                    <span style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                      ${t('subtotal')}:
-                    </span>
-                    <span class="font-semibold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                      ${formatPrice(subtotal)}
-                    </span>
-                  </div>
-                  ${discountApplied ? `
-                    <div class="flex justify-between">
-                      <span style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        Giảm giá (10%):
-                      </span>
-                      <span class="font-semibold" style="color: #22c55e; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        -${formatPrice(discount)}
-                      </span>
-                    </div>
-                  ` : ''}
-                  <div class="flex justify-between">
-                    <span style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                      ${t('shipping')}:
-                    </span>
-                    <span class="font-semibold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                      ${t('free')}
-                    </span>
-                  </div>
-                  <div class="border-t pt-2" style="border-color: ${config.secondary_action_color};">
-                    <div class="flex justify-between items-center">
-                      <span class="font-bold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.125}px;">
-                        ${t('total')}:
-                      </span>
-                      <span class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.5}px;">
-                        ${formatPrice(total)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <button 
-                  onclick="proceedToCheckout()"
-                  class="w-full py-4 rounded-xl font-bold transition-all hover:opacity-90"
-                  style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                >
-                  ${config.checkout_button || t('checkout')}
-                </button>
-              </div>
-            ` : ''}
-          </div>
-        </div>
-      `;
-    }
-
-    function PolicyModal() {
-      if (!showPolicyModal) return '';
-      
-      const config = window.elementSdk?.config || defaultConfig;
-      
-      const policyContent = {
-        terms: {
-          title: 'Điều khoản sử dụng',
-          content: `
-            <div class="space-y-4">
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">1. Chấp nhận điều khoản</h3>
-              <p style="color: ${config.text_color};">Bằng việc sử dụng dịch vụ của chúng tôi, bạn đồng ý với tất cả các điều khoản và điều kiện được nêu trong tài liệu này.</p>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">2. Sản phẩm và dịch vụ</h3>
-              <p style="color: ${config.text_color};">Tất cả sản phẩm được bán là bản quyền chính hãng. Chúng tôi cam kết cung cấp key/license hợp lệ và hỗ trợ kích hoạt.</p>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">3. Thanh toán</h3>
-              <p style="color: ${config.text_color};">Khách hàng cần chuyển khoản đúng số tiền và gửi bill xác nhận qua Telegram. Đơn hàng được xử lý trong vòng 5-30 phút sau khi nhận được xác nhận thanh toán.</p>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">4. Chính sách hoàn tiền</h3>
-              <p style="color: ${config.text_color};">Chúng tôi không hoàn tiền sau khi đã giao key/license, trừ trường hợp key không hoạt động và không thể khắc phục.</p>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">5. Bảo mật thông tin</h3>
-              <p style="color: ${config.text_color};">Thông tin cá nhân của bạn được bảo mật và chỉ sử dụng cho mục đích giao dịch.</p>
-            </div>
-          `
-        },
-        warranty: {
-          title: 'Chính sách bảo hành',
-          content: `
-            <div class="space-y-4">
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">1. Thời gian bảo hành</h3>
-              <p style="color: ${config.text_color};">Mỗi sản phẩm có thời gian bảo hành khác nhau, được ghi rõ trong mô tả sản phẩm. Thông thường từ 3-12 tháng tùy loại sản phẩm.</p>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">2. Điều kiện bảo hành</h3>
-              <ul class="list-disc pl-6 space-y-2" style="color: ${config.text_color};">
-                <li>Key/License bị lỗi không kích hoạt được</li>
-                <li>Tài khoản bị khóa do lỗi từ nhà cung cấp</li>
-                <li>Sản phẩm không hoạt động như mô tả</li>
-              </ul>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">3. Không bảo hành</h3>
-              <ul class="list-disc pl-6 space-y-2" style="color: ${config.text_color};">
-                <li>Khách hàng tự ý thay đổi thông tin tài khoản</li>
-                <li>Chia s�� key/license cho người khác</li>
-                <li>Vi phạm điều khoản sử dụng của nhà cung cấp</li>
-                <li>Hết thời gian bảo hành</li>
-              </ul>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">4. Hỗ trợ 24/7</h3>
-              <p style="color: ${config.text_color};">Liên hệ qua Telegram để được hỗ trợ nhanh nhất. Thời gian phản hồi tối đa 2 giờ.</p>
-              
-              <h3 class="font-bold text-lg" style="color: ${config.primary_action_color};">5. Quy trình bảo hành</h3>
-              <ol class="list-decimal pl-6 space-y-2" style="color: ${config.text_color};">
-                <li>Liên hệ Telegram với thông tin đơn hàng</li>
-                <li>Mô tả chi tiết vấn đề gặp phải</li>
-                <li>Chúng tôi kiểm tra và xử lý trong 24h</li>
-                <li>Thay thế key/license mới nếu cần thiết</li>
-              </ol>
-            </div>
-          `
+            // Show disclaimer modal if not seen
+            if (!hasSeenDisclaimer) {
+                document.getElementById('disclaimer-modal').style.display = 'flex';
+            } else {
+                document.getElementById('disclaimer-modal').style.display = 'none';
+            }
+        });
+        
+        // Toggle Disclaimer Button
+        function toggleDisclaimerButton() {
+            const checkbox = document.getElementById('disclaimer-checkbox');
+            const button = document.getElementById('disclaimer-btn');
+            button.disabled = !checkbox.checked;
         }
-      };
-      
-      const policy = policyContent[policyType];
-      
-      return `
-        <div class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background-color: rgba(0, 0, 0, 0.8);" onclick="closePolicy()">
-          <div class="w-full max-w-3xl max-h-[90vh] overflow-auto rounded-2xl shadow-2xl" 
-               style="background-color: ${config.surface_color}; border: 2px solid ${config.primary_action_color};"
-               onclick="event.stopPropagation()">
+        
+        // Close Disclaimer Modal
+        function closeDisclaimerModal() {
+            const modal = document.getElementById('disclaimer-modal');
+            modal.style.display = 'none';
+            localStorage.setItem('hasSeenDisclaimer', 'true');
+            hasSeenDisclaimer = true;
+        }
+        
+        // Create falling petals animation
+        function createFallingPetals() {
+            const container = document.getElementById('petals-container');
+            const petalSymbols = ['🌸', '🏮', '🎋', '🧧'];
+            const numberOfPetals = 15;
             
-            <div class="sticky top-0 z-10 p-6 border-b flex items-center justify-between" 
-                 style="background-color: ${config.surface_color}; border-color: ${config.primary_action_color};">
-              <h2 class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.5}px;">
-                ${policy.title}
-              </h2>
-              <button onclick="closePolicy()" class="p-2 hover:opacity-70 transition-opacity" style="color: ${config.text_color};">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </button>
-            </div>
+            for (let i = 0; i < numberOfPetals; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.textContent = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                petal.style.opacity = Math.random() * 0.5 + 0.3;
+                container.appendChild(petal);
+            }
+        }
+        
+        // Countdown Timer
+        function startCountdown() {
+            const now = new Date();
+            const endOfDay = new Date(now);
+            endOfDay.setHours(23, 59, 59, 999);
             
-            <div class="p-6" style="font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-              ${policy.content}
-            </div>
-            
-            <div class="p-6 border-t" style="border-color: ${config.secondary_action_color};">
-              <button 
-                onclick="closePolicy()"
-                class="w-full py-3 rounded-xl font-semibold transition-all hover:opacity-90"
-                style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-              >
-                Đóng
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function CheckoutPage() {
-      if (!isCheckoutOpen) return '';
-      
-      const config = window.elementSdk?.config || defaultConfig;
-      const subtotal = getCartTotal();
-      const discount = getDiscountAmount();
-      const shipping = 0;
-      const total = getFinalTotal();
-
-      if (showOrderSuccess) {
-        return `
-          <div class="fixed inset-0 z-50 overflow-auto flex items-center justify-center p-4" style="background-color: ${config.background_color};">
-            <div class="max-w-md w-full rounded-2xl p-8 text-center" style="background-color: ${config.surface_color}; border: 2px solid ${config.primary_action_color};">
-              <div class="success-checkmark" style="background-color: ${config.primary_action_color};">
-                <div class="checkmark"></div>
-              </div>
-              
-              <h2 class="font-bold mb-4" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 2}px;">
-                ${t('orderSuccess')}
-              </h2>
-              
-              <p class="mb-6" style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                Vui lòng chuyển khoản và gửi bill qua Telegram để xác nhận
-              </p>
-
-              <div class="rounded-xl p-4 mb-6" style="background-color: ${config.background_color}; border: 2px solid ${config.secondary_action_color};">
-                <p class="font-semibold mb-2" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                  ${t('total')}: <span style="color: ${config.primary_action_color};">${formatPrice(total)}</span>
-                </p>
-              </div>
-
-              <a 
-                href="${config.telegram_link || defaultConfig.telegram_link}" 
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block w-full py-4 rounded-xl font-bold mb-3 transition-all hover:opacity-90"
-                style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px; text-decoration: none;"
-              >
-                📱 Gửi bill qua Telegram
-              </a>
-
-              <button 
-                onclick="backToHome()"
-                class="w-full py-3 rounded-xl font-semibold transition-all hover:opacity-90"
-                style="background-color: ${config.secondary_action_color}; color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-              >
-                ${t('backToHome')}
-              </button>
-            </div>
-          </div>
-        `;
-      }
-
-      return `
-        <div class="fixed inset-0 z-50 overflow-auto" style="background-color: ${config.background_color};">
-          <div class="max-w-6xl mx-auto p-4 md:p-8">
-            
-            <div class="mb-6">
-              <button 
-                onclick="backToCart()"
-                class="flex items-center gap-2 mb-4 hover:opacity-70 transition-opacity"
-                style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                ${t('backToCart')}
-              </button>
-              <h1 class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 2}px;">
-                ${t('checkoutTitle')}
-              </h1>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              
-              <div class="lg:col-span-2 space-y-6">
+            function updateCountdown() {
+                const now = new Date();
+                const timeLeft = endOfDay - now;
                 
-                <div class="rounded-xl p-6 shadow-lg" style="background-color: ${config.surface_color}; border: 2px solid ${config.primary_action_color};">
-                  <h2 class="font-bold mb-4" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.25}px;">
-                    ${t('customerInfo')}
-                  </h2>
-                  <form id="checkout-form" class="space-y-4" onsubmit="placeOrder(event); return false;">
-                    <div>
-                      <label class="block mb-2 font-semibold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        ${t('name')} *
-                      </label>
-                      <input 
-                        type="text" 
-                        name="name"
-                        required
-                        class="w-full px-4 py-3 border-2 rounded-lg ${formErrors.name ? 'input-error' : ''}"
-                        style="background-color: ${config.background_color}; color: ${config.text_color}; border-color: ${formErrors.name ? '#ef4444' : config.secondary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                        placeholder="Nguyễn Văn A"
-                      />
-                      ${formErrors.name ? `<p class="error-message">${formErrors.name}</p>` : ''}
-                    </div>
-                    <div>
-                      <label class="block mb-2 font-semibold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        ${t('email')} *
-                      </label>
-                      <input 
-                        type="email" 
-                        name="email"
-                        required
-                        class="w-full px-4 py-3 border-2 rounded-lg ${formErrors.email ? 'input-error' : ''}"
-                        style="background-color: ${config.background_color}; color: ${config.text_color}; border-color: ${formErrors.email ? '#ef4444' : config.secondary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                        placeholder="email@example.com"
-                      />
-                      ${formErrors.email ? `<p class="error-message">${formErrors.email}</p>` : ''}
-                    </div>
-                    <div>
-                      <label class="block mb-2 font-semibold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        ${t('phone')} *
-                      </label>
-                      <input 
-                        type="tel" 
-                        name="phone"
-                        required
-                        class="w-full px-4 py-3 border-2 rounded-lg ${formErrors.phone ? 'input-error' : ''}"
-                        style="background-color: ${config.background_color}; color: ${config.text_color}; border-color: ${formErrors.phone ? '#ef4444' : config.secondary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                        placeholder="0912345678"
-                      />
-                      ${formErrors.phone ? `<p class="error-message">${formErrors.phone}</p>` : ''}
-                    </div>
-                  </form>
-                </div>
-
-                <div class="rounded-xl p-6 shadow-lg" style="background-color: ${config.surface_color}; border: 2px solid ${config.primary_action_color};">
-                  <h2 class="font-bold mb-4" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.25}px;">
-                    ${t('paymentMethod')}
-                  </h2>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    
-                    <div 
-                      onclick="selectPaymentMethod('bank')"
-                      class="payment-option rounded-lg p-4 border-2 cursor-pointer ${selectedPaymentMethod === 'bank' ? 'selected' : ''}"
-                      style="border-color: ${selectedPaymentMethod === 'bank' ? config.primary_action_color : config.secondary_action_color}; background-color: ${config.background_color};"
-                    >
-                      <div class="flex items-start gap-3">
-                        <div class="text-3xl">🏦</div>
-                        <div class="flex-1">
-                          <h3 class="font-bold mb-1" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                            ${t('bankTransfer')}
-                          </h3>
-                          <p class="text-sm" style="color: ${config.text_color}; opacity: 0.7; font-family: ${config.font_family}, system-ui;">
-                            ${t('bankDesc')}
-                          </p>
+                if (timeLeft <= 0) {
+                    endOfDay.setDate(endOfDay.getDate() + 1);
+                }
+                
+                const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // Fake Sales Notifications
+        function startFakeSalesNotifications() {
+            function showRandomNotification() {
+                const randomName = fakeNames[Math.floor(Math.random() * fakeNames.length)];
+                const randomProduct = productsData[Math.floor(Math.random() * productsData.length)];
+                const randomMinutes = Math.floor(Math.random() * 30) + 1;
+                
+                const container = document.getElementById('sales-notification-container');
+                const notification = document.createElement('div');
+                notification.className = 'sales-notification bg-white rounded-xl shadow-2xl p-4 mb-3 border-2 border-green-300 max-w-sm';
+                notification.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-400 rounded-full flex items-center justify-center flex-shrink-0 text-2xl shadow-lg">
+                            ✓
                         </div>
-                        ${selectedPaymentMethod === 'bank' ? `
-                          <svg class="w-6 h-6 flex-shrink-0" style="color: ${config.primary_action_color};" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                        ` : ''}
-                      </div>
-                    </div>
-
-                    <div 
-                      onclick="selectPaymentMethod('momo')"
-                      class="payment-option rounded-lg p-4 border-2 cursor-pointer ${selectedPaymentMethod === 'momo' ? 'selected' : ''}"
-                      style="border-color: ${selectedPaymentMethod === 'momo' ? config.primary_action_color : config.secondary_action_color}; background-color: ${config.background_color};"
-                    >
-                      <div class="flex items-start gap-3">
-                        <div class="text-3xl">💳</div>
-                        <div class="flex-1">
-                          <h3 class="font-bold mb-1" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                            ${t('momo')}
-                          </h3>
-                          <p class="text-sm" style="color: ${config.text_color}; opacity: 0.7; font-family: ${config.font_family}, system-ui;">
-                            ${t('momoDesc')}
-                          </p>
-                        </div>
-                        ${selectedPaymentMethod === 'momo' ? `
-                          <svg class="w-6 h-6 flex-shrink-0" style="color: ${config.primary_action_color};" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                        ` : ''}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Payment Note -->
-                <div class="rounded-xl p-6 shadow-lg" style="background-color: #fef3c7; border: 2px solid #f59e0b;">
-                  <div class="flex gap-3">
-                    <div class="text-2xl">⚠️</div>
-                    <div>
-                      <h3 class="font-bold mb-2" style="color: #d97706; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.125}px;">
-                        Lưu ý quan trọng
-                      </h3>
-                      <ul class="space-y-2 text-sm" style="color: #92400e; font-family: ${config.font_family}, system-ui;">
-                        <li>✓ Sau khi đặt hàng, vui lòng chuyển khoản theo thông tin hiển thị</li>
-                        <li>✓ <strong>Chụp bill/screenshot xác nhận chuyển khoản</strong></li>
-                        <li>✓ <strong>Gửi bill qua Telegram</strong> để được xử lý đơn hàng</li>
-                        <li>✓ Đơn hàng được xử lý trong 5-30 phút sau khi xác nhận</li>
-                        <li>✓ Key/License sẽ được gửi qua Telegram</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Discount Code Section -->
-                <div class="rounded-xl p-6 shadow-lg" style="background-color: ${config.surface_color}; border: 2px solid ${config.primary_action_color};">
-                  <h2 class="font-bold mb-4" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.25}px;">
-                    Mã giảm giá
-                  </h2>
-                  ${discountApplied ? `
-                    <div class="flex items-center justify-between p-4 rounded-lg" style="background-color: #dcfce7; border: 2px solid #22c55e;">
-                      <div class="flex items-center gap-3">
-                        <svg class="w-6 h-6" style="color: #22c55e;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <div>
-                          <p class="font-bold" style="color: #22c55e; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                            Mã "${discountCode}" đã được áp dụng
-                          </p>
-                          <p class="text-sm" style="color: #16a34a; font-family: ${config.font_family}, system-ui;">
-                            Giảm 10% đơn hàng
-                          </p>
-                        </div>
-                      </div>
-                      <button 
-                        onclick="removeDiscountCode()"
-                        class="px-3 py-1 rounded-lg font-semibold transition-all hover:opacity-80"
-                        style="background-color: #ef4444; color: #ffffff; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;"
-                      >
-                        Xóa
-                      </button>
-                    </div>
-                  ` : `
-                    <div class="flex gap-2">
-                      <input 
-                        type="text" 
-                        id="discount-code-input"
-                        placeholder="Nhập mã giảm giá"
-                        class="flex-1 px-4 py-3 border-2 rounded-lg"
-                        style="background-color: ${config.background_color}; color: ${config.text_color}; border-color: ${config.secondary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                      />
-                      <button 
-                        onclick="applyDiscountCode()"
-                        class="px-6 py-3 rounded-lg font-semibold transition-all hover:opacity-90"
-                        style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                      >
-                        Áp dụng
-                      </button>
-                    </div>
-                  `}
-                </div>
-              </div>
-
-              <div class="lg:col-span-1">
-                <div class="rounded-xl p-6 shadow-lg sticky top-4" style="background-color: ${config.surface_color}; border: 2px solid ${config.primary_action_color};">
-                  <h2 class="font-bold mb-4" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.25}px;">
-                    ${t('orderSummary')}
-                  </h2>
-                  
-                  <div class="space-y-3 mb-4 pb-4 border-b" style="border-color: ${config.secondary_action_color};">
-                    ${cart.map(item => `
-                      <div class="flex gap-3">
-                        <div class="text-2xl">${item.image}</div>
-                        <div class="flex-1 min-w-0">
-                          <h4 class="font-semibold text-sm truncate" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui;">
-                            ${item.name}
-                          </h4>
-                          ${item.variation ? `
-                            <p class="text-xs" style="color: ${config.text_color}; opacity: 0.6; font-family: ${config.font_family}, system-ui;">
-                              ${item.variation}
+                        <div class="flex-1 text-sm">
+                            <p class="font-bold text-gray-800">${randomName}</p>
+                            <p class="text-gray-600">vừa mua <strong>${randomProduct.name}</strong></p>
+                            <p class="text-gray-500 text-xs mt-1">
+                                <i class="fas fa-clock mr-1"></i>${randomMinutes} phút trước
                             </p>
-                          ` : ''}
-                          <p class="text-xs mt-1" style="color: ${config.text_color}; opacity: 0.6; font-family: ${config.font_family}, system-ui;">
-                            ${formatPrice(item.price)} × ${item.quantity}
-                          </p>
                         </div>
-                        <div class="font-semibold text-sm" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui;">
-                          ${formatPrice(item.price * item.quantity)}
+                    </div>
+                `;
+                
+                container.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.add('sales-notification-exit');
+                    setTimeout(() => {
+                        if (notification.parentNode === container) {
+                            container.removeChild(notification);
+                        }
+                    }, 500);
+                }, 4000);
+            }
+            
+            showRandomNotification();
+            
+            setInterval(() => {
+                showRandomNotification();
+            }, Math.random() * 15000 + 15000);
+        }
+        
+        // Search Products
+        function searchProducts() {
+            const searchInput = document.getElementById('search-input');
+            currentSearchTerm = searchInput.value.toLowerCase().trim();
+            renderProducts();
+        }
+        
+        // Filter by Category
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update active tab
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            renderProducts();
+        }
+        
+        // Show page
+        function showPage(pageName) {
+            currentPage = pageName;
+            
+            const pages = ['home', 'policy', 'about', 'contact'];
+            pages.forEach(page => {
+                const element = document.getElementById(`page-${page}`);
+                if (element) {
+                    element.classList.add('hidden');
+                }
+            });
+            
+            const selectedPage = document.getElementById(`page-${pageName}`);
+            if (selectedPage) {
+                selectedPage.classList.remove('hidden');
+            }
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-red-800');
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Render products with search and category filter
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            const noProductsMessage = document.getElementById('no-products-message');
+            
+            let filteredProducts = productsData;
+            
+            // Filter by category
+            if (currentCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.category === currentCategory);
+            }
+            
+            // Filter by search term
+            if (currentSearchTerm) {
+                filteredProducts = filteredProducts.filter(product => {
+                    return product.name.toLowerCase().includes(currentSearchTerm) ||
+                           product.description.toLowerCase().includes(currentSearchTerm);
+                });
+            }
+            
+            if (filteredProducts.length === 0) {
+                grid.classList.add('hidden');
+                noProductsMessage.classList.remove('hidden');
+                return;
+            }
+            
+            grid.classList.remove('hidden');
+            noProductsMessage.classList.add('hidden');
+            
+            grid.innerHTML = filteredProducts.map(product => {
+                const currentPrice = product.hasVariants 
+                    ? product.variants[product.selectedVariant].price 
+                    : product.price;
+                    
+                return `
+                    <div class="product-card product-fade-in bg-white rounded-2xl shadow-xl overflow-hidden relative border-2 border-red-200">
+                        ${product.badge ? `<div class="bg-gradient-to-r from-red-600 to-yellow-500 text-white text-xs font-bold px-4 py-2 absolute top-4 right-4 rounded-full z-10 shadow-lg animate-pulse">${product.badge}</div>` : ''}
+                        
+                        <div class="bg-gradient-to-br from-red-100 via-yellow-100 to-red-100 h-52 flex items-center justify-center border-b-4 border-yellow-400 overflow-hidden">
+                            <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src=''; this.alt='❌ Ảnh lỗi'; this.style.display='none';">
                         </div>
-                      </div>
-                    `).join('')}
-                  </div>
-
-                  <div class="space-y-2 mb-4">
-                    <div class="flex justify-between">
-                      <span style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        ${t('subtotal')}:
-                      </span>
-                      <span class="font-semibold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        ${formatPrice(subtotal)}
-                      </span>
+                        
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">${product.name}</h4>
+                            <p class="text-gray-600 text-sm mb-4">${product.description}</p>
+                            
+                            ${product.hasVariants ? `
+                                <div class="mb-4">
+                                    <label class="block text-sm font-semibold mb-2 text-gray-700">
+                                        <i class="fas fa-list-ul text-red-600 mr-1"></i>Chọn gói:
+                                    </label>
+                                    <select onchange="updateVariant(${product.id}, this.value)" 
+                                            class="w-full px-4 py-3 border-2 border-red-300 rounded-lg focus:outline-none focus:border-red-500 bg-white font-semibold transition-all">
+                                        ${product.variants.map((v, idx) => 
+                                            `<option value="${idx}">${v.name} - ${formatPrice(v.price)}</option>`
+                                        ).join('')}
+                                    </select>
+                                </div>
+                            ` : ''}
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    ${product.oldPrice ? `<span class="text-gray-400 line-through text-sm mr-2">${formatPrice(product.oldPrice)}</span>` : ''}
+                                    <span id="price-${product.id}" class="text-3xl font-black text-red-600">${formatPrice(currentPrice)}</span>
+                                </div>
+                            </div>
+                            
+                            <button onclick="addToCart(${product.id})" 
+                                    class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-4 rounded-xl font-bold text-lg btn-primary hover:from-red-700 hover:to-red-800 shadow-lg">
+                                <i class="fas fa-cart-plus mr-2"></i>
+                                Thêm Vào Giỏ
+                            </button>
+                        </div>
                     </div>
-                    ${discountApplied ? `
-                      <div class="flex justify-between">
-                        <span style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                          Giảm giá (${discountCode}):
-                        </span>
-                        <span class="font-bold" style="color: #22c55e; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;">
-                          -${formatPrice(discount)}
-                        </span>
-                      </div>
-                    ` : ''}
-                    <div class="flex justify-between">
-                      <span style="color: ${config.text_color}; opacity: 0.8; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        ${t('shipping')}:
-                      </span>
-                      <span class="font-semibold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 0.875}px;">
-                        ${t('free')}
-                      </span>
-                    </div>
-                    <div class="border-t pt-2" style="border-color: ${config.secondary_action_color};">
-                      <div class="flex justify-between items-center">
-                        <span class="font-bold" style="color: ${config.text_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.125}px;">
-                          ${t('total')}:
-                        </span>
-                        <span class="font-bold" style="color: ${config.primary_action_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size * 1.5}px;">
-                          ${formatPrice(total)}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button 
-                    type="submit"
-                    form="checkout-form"
-                    class="w-full py-4 rounded-xl font-bold transition-all hover:opacity-90 mb-3"
-                    style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${config.font_family}, system-ui; font-size: ${config.font_size}px;"
-                  >
-                    ${t('placeOrder')}
-                  </button>
-                  
-                  <p class="text-center text-xs" style="color: ${config.text_color}; opacity: 0.6; font-family: ${config.font_family}, system-ui;">
-                    ${t('secureCheckout')}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function HomePage() {
-      const config = window.elementSdk?.config || defaultConfig;
-      const customFont = config.font_family;
-      const baseFontStack = 'system-ui, -apple-system, sans-serif';
-      
-      const filteredProducts = selectedCategory === 'all' 
-        ? productsData 
-        : productsData.filter(p => p.category === selectedCategory);
-
-      const featuredProducts = productsData.filter(p => p.featured);
-
-      return `
-        <div id="snowflakes"></div>
-        <div class="w-full" style="background-color: ${config.background_color}; font-family: ${customFont}, ${baseFontStack};">
-          <!-- Header -->
-          <header class="sticky top-0 z-40 shadow-lg" style="background-color: ${config.surface_color}; border-bottom: 2px solid ${config.primary_action_color};">
-            <div class="max-w-7xl mx-auto px-4 py-4">
-              <div class="flex items-center justify-between gap-4">
-                <h1 class="font-bold whitespace-nowrap" style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 1.5}px;">
-                  ${config.site_title}
-                </h1>
-                
-                <div class="flex-1 max-w-xl hidden md:block">
-                  <input 
-                    type="text" 
-                    placeholder="${config.search_placeholder || t('search')}"
-                    class="w-full px-4 py-2 rounded-lg border-2"
-                    style="background-color: ${config.background_color}; color: ${config.text_color}; border-color: ${config.secondary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size}px;"
-                  />
-                </div>
-                
-                <div class="flex items-center gap-3">
-                  <button 
-                    onclick="toggleCart()"
-                    class="relative p-2 hover:opacity-70 transition-opacity"
-                    style="color: ${config.text_color};"
-                  >
-                    <svg class="w-6 h-6" style="color: ${config.primary_action_color};" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    ${cart.length > 0 ? `
-                      <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold" 
-                            style="background-color: ${config.primary_action_color}; color: #ffffff;">
-                        ${cart.length}
-                      </span>
-                    ` : ''}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </header>
-
-          <!-- Hero Section -->
-          <section class="py-16 px-4 relative overflow-hidden" style="background: linear-gradient(135deg, ${config.primary_action_color}20 0%, ${config.secondary_action_color}20 100%);">
-            <div class="max-w-7xl mx-auto text-center relative z-10">
-              <h2 class="font-bold mb-4" style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 2.5}px;">
-                ${config.hero_title}
-              </h2>
-              <p class="mb-6" style="color: ${config.secondary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 1.25}px;">
-                ${config.hero_subtitle}
-              </p>
-              <button 
-                onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})"
-                class="px-8 py-3 rounded-lg font-semibold transition-all hover:opacity-90"
-                style="background-color: ${config.primary_action_color}; color: ${config.background_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size}px;"
-              >
-                ${t('shopNow')}
-              </button>
-            </div>
-          </section>
-
-          <!-- Featured Products Carousel -->
-          <section class="py-12 px-4" style="background-color: ${config.surface_color};">
-            <div class="max-w-7xl mx-auto">
-              <h2 class="font-bold mb-8 text-center" style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 2}px;">
-                ${t('featuredProducts')}
-              </h2>
-              
-              <div class="carousel-container relative" onmouseenter="stopCarousel()" onmouseleave="startCarousel()">
-                <div class="carousel-track">
-                  ${featuredProducts.map(product => `
-                    <div class="w-full px-4 flex-shrink-0">
-                      <div class="max-w-md mx-auto">
-                        ${ProductCard(product, true)}
-                      </div>
-                    </div>
-                  `).join('')}
-                </div>
-                
-                <button 
-                  onclick="prevSlide()"
-                  class="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:opacity-90 z-10"
-                  style="background-color: ${config.primary_action_color}; color: ${config.background_color};"
-                >
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                  </svg>
-                </button>
-                
-                <button 
-                  onclick="nextSlide()"
-                  class="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:opacity-90 z-10"
-                  style="background-color: ${config.primary_action_color}; color: ${config.background_color};"
-                >
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </section>
-
-          <!-- About Section -->
-          <section class="py-12 px-4">
-            <div class="max-w-4xl mx-auto text-center">
-              <div class="rounded-2xl p-8" style="background-color: ${config.surface_color}; border: 2px solid ${config.secondary_action_color};">
-                <div class="text-6xl mb-4">✨</div>
-                <h2 class="font-bold mb-4" style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 2}px;">
-                  ${config.about_title || t('aboutTitle')}
-                </h2>
-                <p class="mb-6" style="color: ${config.text_color}; opacity: 0.9; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 1.125}px;">
-                  ${config.about_description || t('aboutDesc')}
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                  <div class="p-6 rounded-xl" style="background-color: ${config.background_color}; border: 2px solid ${config.primary_action_color};">
-                    <div class="text-4xl mb-3">💎</div>
-                    <h3 class="font-bold mb-2" style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 1.125}px;">${t('authenticLicense')}</h3>
-                    <p style="color: ${config.text_color}; opacity: 0.8; font-size: ${config.font_size * 0.875}px;">${t('authenticDesc')}</p>
-                  </div>
-                  <div class="p-6 rounded-xl" style="background-color: ${config.background_color}; border: 2px solid ${config.primary_action_color};">
-                    <div class="text-4xl mb-3">🛡️</div>
-                    <h3 class="font-bold mb-2" style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 1.125}px;">${t('bestWarranty')}</h3>
-                    <p style="color: ${config.text_color}; opacity: 0.8; font-size: ${config.font_size * 0.875}px;">${t('warrantyDesc')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Categories -->
-          <section class="py-6 px-4 border-y" style="background-color: ${config.surface_color}; border-color: ${config.primary_action_color};">
-            <div class="max-w-7xl mx-auto">
-              <div class="flex flex-wrap gap-2 justify-center">
-                <button 
-                  onclick="filterByCategory('all')"
-                  class="px-4 py-2 rounded-lg font-semibold transition-all hover:opacity-90"
-                  style="background-color: ${selectedCategory === 'all' ? config.primary_action_color : config.background_color}; 
-                         color: ${selectedCategory === 'all' ? config.background_color : config.text_color}; 
-                         font-family: ${customFont}, ${baseFontStack}; 
-                         font-size: ${config.font_size * 0.875}px;"
-                >
-                  ${t('allProducts')}
-                </button>
-                ${['maps', 'ai', 'design', 'tools'].map(cat => `
-                  <button 
-                    onclick="filterByCategory('${cat}')"
-                    class="px-4 py-2 rounded-lg font-semibold transition-all hover:opacity-90"
-                    style="background-color: ${selectedCategory === cat ? config.primary_action_color : config.background_color}; 
-                           color: ${selectedCategory === cat ? config.background_color : config.text_color}; 
-                           font-family: ${customFont}, ${baseFontStack}; 
-                           font-size: ${config.font_size * 0.875}px;"
-                  >
-                    ${t('categories_nav.' + cat)}
-                  </button>
-                `).join('')}
-              </div>
-            </div>
-          </section>
-
-          <!-- Products Grid -->
-          <section id="products" class="py-12 px-4">
-            <div class="max-w-7xl mx-auto">
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                ${filteredProducts.map(product => ProductCard(product)).join('')}
-              </div>
-            </div>
-          </section>
-
-          <!-- Footer -->
-          <footer class="py-8 px-4 border-t" style="background-color: ${config.surface_color}; border-color: ${config.primary_action_color};">
-            <div class="max-w-7xl mx-auto">
-              <div class="flex flex-wrap justify-center gap-6 mb-6">
-                <button 
-                  onclick="showPolicy('warranty')"
-                  class="hover:opacity-70 transition-opacity"
-                  style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 0.875}px; text-decoration: underline;"
-                >
-                  Chính sách bảo hành
-                </button>
-                <button 
-                  onclick="showPolicy('terms')"
-                  class="hover:opacity-70 transition-opacity"
-                  style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 0.875}px; text-decoration: underline;"
-                >
-                  Điều khoản sử dụng
-                </button>
-                <a 
-                  href="${config.telegram_link || defaultConfig.telegram_link}" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:opacity-70 transition-opacity"
-                  style="color: ${config.primary_action_color}; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 0.875}px; text-decoration: underline;"
-                >
-                  Liên hệ
-                </a>
-              </div>
-              <div class="text-center pt-4 border-t" style="border-color: ${config.secondary_action_color};">
-                <p style="color: ${config.text_color}; opacity: 0.6; font-family: ${customFont}, ${baseFontStack}; font-size: ${config.font_size * 0.875}px;">
-                  © 2024 ${config.site_title}. All rights reserved.
-                </p>
-              </div>
-            </div>
-          </footer>
-
-          <!-- Chat Support Button -->
-          <a
-            href="${config.telegram_link || defaultConfig.telegram_link}" 
-            target="_blank"
-            rel="noopener noreferrer"
-            class="chat-button fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-lg flex items-center justify-center z-30 transition-all"
-            style="background-color: ${config.primary_action_color}; color: ${config.background_color};"
-          >
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-            </svg>
-          </a>
-        </div>
-      `;
-    }
-
-    function render() {
-      const app = document.getElementById('app');
-      
-      if (isCheckoutOpen) {
-        app.innerHTML = CheckoutPage() + PolicyModal();
-        createSnowflakes();
-        return;
-      }
-
-      app.innerHTML = HomePage() + CartDrawer() + PolicyModal();
-      
-      if (currentPage === 'home') {
-        startCarousel();
-      }
-      
-      createSnowflakes();
-    }
-
-    // Global functions
-    window.handleAddToCart = function(productId) {
-      const product = productsData.find(p => p.id === productId);
-      if (!product) return;
-
-      if (product.hasVariations) {
-        const selects = document.querySelectorAll(`select[data-product-id="${productId}"]`);
-        let variationId = null;
-        
-        for (const select of selects) {
-          if (select.value) {
-            variationId = select.value;
-            break;
-          }
+                `;
+            }).join('');
         }
         
-        if (!variationId) {
-          showToast(currentLanguage === 'vi' ? 'Vui lòng chọn tùy chọn' : 'Please select an option');
-          return;
+        // Update variant
+        function updateVariant(productId, variantIndex) {
+            const product = productsData.find(p => p.id === productId);
+            if (product && product.hasVariants) {
+                product.selectedVariant = parseInt(variantIndex);
+                const newPrice = product.variants[variantIndex].price;
+                document.getElementById(`price-${productId}`).textContent = formatPrice(newPrice);
+            }
         }
         
-        const variation = product.variations.find(v => v.id === variationId);
-        addToCart(product, variation);
+        // Add to cart
+        function addToCart(productId) {
+            const product = productsData.find(p => p.id === productId);
+            
+            let productName = product.name;
+            let productPrice = product.price;
+            
+            if (product.hasVariants) {
+                const variant = product.variants[product.selectedVariant];
+                productName += ` (${variant.name})`;
+                productPrice = variant.price;
+            }
+            
+            const cartItem = cart.find(item => 
+                item.id === productId && 
+                item.variantIndex === (product.hasVariants ? product.selectedVariant : null)
+            );
+            
+            if (cartItem) {
+                cartItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: productPrice,
+                    image: product.image,
+                    quantity: 1,
+                    variantIndex: product.hasVariants ? product.selectedVariant : null
+                });
+            }
+            
+            saveCart();
+            updateCartUI();
+            showSuccessToast('🎉 Đã thêm sản phẩm vào giỏ hàng!');
+            
+            const badge = document.getElementById('cart-badge');
+            badge.classList.add('badge-bounce');
+            setTimeout(() => badge.classList.remove('badge-bounce'), 500);
+        }
         
-        // Reset all selects for this product
-        selects.forEach(select => select.value = '');
-      } else {
-        addToCart(product);
-      }
-    };
-
-    window.toggleCart = toggleCart;
-    window.toggleLanguage = toggleLanguage;
-    window.filterByCategory = filterByCategory;
-    window.removeFromCart = removeFromCart;
-    window.updateQuantity = updateQuantity;
-    window.proceedToCheckout = proceedToCheckout;
-    window.backToCart = backToCart;
-    window.backToHome = backToHome;
-    window.selectPaymentMethod = selectPaymentMethod;
-    window.placeOrder = placeOrder;
-    window.navigateTo = navigateTo;
-    window.nextSlide = nextSlide;
-    window.prevSlide = prevSlide;
-    window.startCarousel = startCarousel;
-    window.stopCarousel = stopCarousel;
-    window.applyDiscountCode = applyDiscountCode;
-    window.removeDiscountCode = removeDiscountCode;
-    window.showPolicy = showPolicy;
-    window.closePolicy = closePolicy;
-
-    async function onConfigChange(config) {
-      render();
-    }
-
-    const capabilities = {
-      recolorables: [
-        {
-          get: () => (window.elementSdk?.config || defaultConfig).background_color,
-          set: (value) => {
-            if (window.elementSdk) {
-              window.elementSdk.setConfig({ background_color: value });
+        // Apply Discount Code
+        function applyDiscount() {
+            const input = document.getElementById('discount-code-input');
+            const code = input.value.trim().toUpperCase();
+            const messageDiv = document.getElementById('discount-message');
+            
+            if (code === 'VUITETSAMQUA') {
+                appliedDiscount = 0.1; // 10% discount
+                discountCode = code;
+                messageDiv.className = 'mt-2 text-sm text-green-600 font-semibold';
+                messageDiv.innerHTML = '<i class="fas fa-check-circle mr-1"></i>Đã áp dụng mã giảm giá 10%!';
+                messageDiv.classList.remove('hidden');
+                showSuccessToast('🎉 Áp dụng mã giảm giá thành công!');
+            } else {
+                appliedDiscount = 0;
+                discountCode = '';
+                messageDiv.className = 'mt-2 text-sm text-red-600 font-semibold';
+                messageDiv.innerHTML = '<i class="fas fa-times-circle mr-1"></i>Mã giảm giá không hợp lệ!';
+                messageDiv.classList.remove('hidden');
+                showSuccessToast('❌ Mã giảm giá không hợp lệ!');
             }
-          }
-        },
-        {
-          get: () => (window.elementSdk?.config || defaultConfig).surface_color,
-          set: (value) => {
-            if (window.elementSdk) {
-              window.elementSdk.setConfig({ surface_color: value });
-            }
-          }
-        },
-        {
-          get: () => (window.elementSdk?.config || defaultConfig).text_color,
-          set: (value) => {
-            if (window.elementSdk) {
-              window.elementSdk.setConfig({ text_color: value });
-            }
-          }
-        },
-        {
-          get: () => (window.elementSdk?.config || defaultConfig).primary_action_color,
-          set: (value) => {
-            if (window.elementSdk) {
-              window.elementSdk.setConfig({ primary_action_color: value });
-            }
-          }
-        },
-        {
-          get: () => (window.elementSdk?.config || defaultConfig).secondary_action_color,
-          set: (value) => {
-            if (window.elementSdk) {
-              window.elementSdk.setConfig({ secondary_action_color: value });
-            }
-          }
+            
+            updateCartUI();
+            
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
         }
-      ],
-      borderables: [],
-      fontEditable: {
-        get: () => (window.elementSdk?.config || defaultConfig).font_family,
-        set: (value) => {
-          if (window.elementSdk) {
-            window.elementSdk.setConfig({ font_family: value });
-          }
+        
+        // Update cart UI with discount
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const discountDisplay = document.getElementById('discount-display');
+            const discountAmount = document.getElementById('discount-amount');
+            const originalTotal = document.getElementById('original-total');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = Math.round(subtotal * appliedDiscount);
+            const totalPrice = subtotal - discount;
+            
+            if (totalItems > 0) {
+                badge.classList.remove('hidden');
+                badge.textContent = totalItems;
+            } else {
+                badge.classList.add('hidden');
+            }
+            
+            // Show/hide discount display
+            if (appliedDiscount > 0) {
+                discountDisplay.classList.remove('hidden');
+                discountAmount.textContent = '-' + formatPrice(discount);
+                originalTotal.textContent = formatPrice(subtotal);
+                originalTotal.classList.remove('hidden');
+            } else {
+                discountDisplay.classList.add('hidden');
+                originalTotal.classList.add('hidden');
+            }
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fas fa-shopping-cart text-6xl mb-4 text-gray-300"></i>
+                        <p class="text-lg font-semibold">Giỏ hàng trống</p>
+                        <p class="text-sm mt-2">Hãy thêm sản phẩm vào giỏ nhé! 🛒</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="bg-gradient-to-br from-red-50 to-yellow-50 rounded-xl p-4 mb-3 border-2 border-red-200 shadow-md">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-16 h-16 flex-shrink-0 bg-white rounded-lg overflow-hidden border-2 border-yellow-400">
+                                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-contain" onerror="this.style.display='none';">
+                            </div>
+                            <div class="flex-1">
+                                <h5 class="font-bold text-gray-800 mb-1">${item.name}</h5>
+                                <p class="text-red-600 font-black text-lg mb-3">${formatPrice(item.price)}</p>
+                                <div class="flex items-center space-x-3">
+                                    <button onclick="updateQuantity(${index}, -1)" 
+                                            class="bg-red-500 hover:bg-red-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition-all shadow-md">
+                                        <i class="fas fa-minus text-sm"></i>
+                                    </button>
+                                    <span class="font-black text-lg w-10 text-center">${item.quantity}</span>
+                                    <button onclick="updateQuantity(${index}, 1)" 
+                                            class="bg-green-500 hover:bg-green-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition-all shadow-md">
+                                        <i class="fas fa-plus text-sm"></i>
+                                    </button>
+                                    <button onclick="removeFromCart(${index})" 
+                                            class="ml-auto text-red-600 hover:text-red-800 transition-colors bg-red-100 hover:bg-red-200 p-2 rounded-lg">
+                                        <i class="fas fa-trash text-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            cartTotal.textContent = formatPrice(totalPrice);
         }
-      },
-      fontSizeable: {
-        get: () => (window.elementSdk?.config || defaultConfig).font_size,
-        set: (value) => {
-          if (window.elementSdk) {
-            window.elementSdk.setConfig({ font_size: value });
-          }
+        
+        // Update quantity
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            } else {
+                showSuccessToast('✅ Đã cập nhật số lượng!');
+            }
+            
+            saveCart();
+            updateCartUI();
         }
-      }
-    };
-
-    function mapToCapabilities(config) {
-      return capabilities;
-    }
-
-    function mapToEditPanelValues(config) {
-      return new Map([
-        ['site_title', config.site_title || defaultConfig.site_title],
-        ['hero_title', config.hero_title || defaultConfig.hero_title],
-        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
-        ['about_title', config.about_title || defaultConfig.about_title],
-        ['about_description', config.about_description || defaultConfig.about_description],
-        ['search_placeholder', config.search_placeholder || defaultConfig.search_placeholder],
-        ['add_to_cart_text', config.add_to_cart_text || defaultConfig.add_to_cart_text],
-        ['checkout_button', config.checkout_button || defaultConfig.checkout_button],
-        ['telegram_link', config.telegram_link || defaultConfig.telegram_link]
-      ]);
-    }
-
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-
-    render();
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b41462873a40725',t:'MTc2Njc1OTQwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+        
+        // Remove from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+            updateCartUI();
+            showSuccessToast('🗑️ Đã xóa sản phẩm khỏi giỏ hàng!');
+        }
+        
+        // Save cart
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        // Toggle cart
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            sidebar.classList.toggle('translate-x-full');
+        }
+        
+        // Proceed to checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                showSuccessToast('⚠️ Giỏ hàng trống! Vui lòng thêm sản phẩm.');
+                return;
+            }
+            
+            const modal = document.getElementById('checkout-modal');
+            modal.classList.remove('hidden');
+            
+            const checkoutItems = document.getElementById('checkout-items');
+            const checkoutTotal = document.getElementById('checkout-total');
+            const checkoutDiscountDisplay = document.getElementById('checkout-discount-display');
+            const checkoutDiscountAmount = document.getElementById('checkout-discount-amount');
+            const checkoutOriginalTotal = document.getElementById('checkout-original-total');
+            
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = Math.round(subtotal * appliedDiscount);
+            const totalPrice = subtotal - discount;
+            
+            checkoutItems.innerHTML = cart.map(item => `
+                <div class="flex justify-between text-gray-700">
+                    <span>${item.name} <strong>x${item.quantity}</strong></span>
+                    <span class="font-bold text-red-600">${formatPrice(item.price * item.quantity)}</span>
+                </div>
+            `).join('');
+            
+            // Show/hide discount in checkout
+            if (appliedDiscount > 0) {
+                checkoutDiscountDisplay.classList.remove('hidden');
+                checkoutDiscountAmount.textContent = '-' + formatPrice(discount);
+                checkoutOriginalTotal.textContent = formatPrice(subtotal);
+                checkoutOriginalTotal.classList.remove('hidden');
+            } else {
+                checkoutDiscountDisplay.classList.add('hidden');
+                checkoutOriginalTotal.classList.add('hidden');
+            }
+            
+            checkoutTotal.textContent = formatPrice(totalPrice);
+            
+            toggleCart();
+        }
+        
+        // Close checkout
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+        
+        // Copy text function
+        function copyText(text, successMessage) {
+            navigator.clipboard.writeText(text).then(() => {
+                showSuccessToast(successMessage || '📋 Đã sao chép!');
+            }).catch(() => {
+                showSuccessToast('❌ Không thể sao chép. Vui lòng thử lại!');
+            });
+        }
+        
+        // Submit order
+        function submitOrder() {
+            const form = document.getElementById('checkout-form');
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            const name = document.getElementById('customer-name').value;
+            const phone = document.getElementById('customer-phone').value;
+            const email = document.getElementById('customer-email').value;
+            
+            if (!name || !phone || !email) {
+                showSuccessToast('⚠️ Vui lòng điền đầy đủ thông tin!');
+                return;
+            }
+            
+            // Calculate final total with discount
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = Math.round(subtotal * appliedDiscount);
+            const totalPrice = subtotal - discount;
+            
+            // Save order info for Smart Checkout
+            lastOrderInfo = {
+                name: name,
+                phone: phone,
+                items: cart.map(item => ({
+                    name: item.name,
+                    quantity: item.quantity,
+                    price: item.price
+                })),
+                total: totalPrice,
+                discount: discount,
+                discountCode: discountCode
+            };
+            
+            cart = [];
+            appliedDiscount = 0;
+            discountCode = '';
+            saveCart();
+            updateCartUI();
+            
+            closeCheckout();
+            
+            const successModal = document.getElementById('success-modal');
+            successModal.classList.remove('hidden');
+            
+            form.reset();
+        }
+        
+        // Close success modal
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+        
+        // Smart Checkout - Send Order to Telegram
+        function sendOrderToTelegram() {
+            const telegramUsername = 'tomxinh917';
+            
+            let itemsList = lastOrderInfo.items.map(item => 
+                `${item.name} x${item.quantity} = ${formatPrice(item.price * item.quantity)}`
+            ).join('\n');
+            
+            let discountInfo = '';
+            if (lastOrderInfo.discount > 0) {
+                discountInfo = `\n\nMã giảm giá: ${lastOrderInfo.discountCode}\nGiảm: ${formatPrice(lastOrderInfo.discount)}`;
+            }
+            
+            const message = `Chào Admin, tôi là ${lastOrderInfo.name}, SĐT ${lastOrderInfo.phone}.\n\nTôi muốn mua:\n${itemsList}${discountInfo}\n\nTổng tiền: ${formatPrice(lastOrderInfo.total)}\n\nMong được kích hoạt ngay!`;
+            
+            const telegramUrl = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`;
+            
+            window.open(telegramUrl, '_blank', 'noopener,noreferrer');
+            
+            showSuccessToast('✅ Đang mở Telegram để gửi đơn hàng!');
+        }
+        
+        // Smart Checkout - Send Order to Zalo (Disabled - Under Maintenance)
+        function sendOrderToZalo() {
+            showSuccessToast('⚠️ Zalo đang trong quá trình bảo trì. Vui lòng sử dụng Telegram!');
+        }
+        
+        // Show success toast
+        function showSuccessToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast bg-white shadow-2xl rounded-xl p-4 flex items-center space-x-3 min-w-[320px] border-2 border-green-300';
+            toast.innerHTML = `
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <i class="fas fa-check text-white text-xl"></i>
+                </div>
+                <span class="text-gray-800 font-semibold">${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('toast-exit');
+                setTimeout(() => {
+                    container.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Format price
+        function formatPrice(price) {
+            return price.toLocaleString('vi-VN') + 'đ';
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b50e66aa363d62b',t:'MTc2NjkyMzI1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
